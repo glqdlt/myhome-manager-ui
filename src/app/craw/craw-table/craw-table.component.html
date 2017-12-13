@@ -1,0 +1,29 @@
+<div class="w3-container">
+    <div id="searchBar">
+        <select>
+            <option></option>
+        </select>
+    </div>
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Site</th>
+                <th>CrawTime</th>
+                <th>Subject</th>
+                <th>WriteTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let c of crawData">
+                <td>{{c.no}}</td>
+                <td><a [href]="c.url">{{c.site}}</a></td>
+                <td>{{c.craw_time}}</td>
+                <td>{{c.subject}}</td>
+                <td>{{c.write_time}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

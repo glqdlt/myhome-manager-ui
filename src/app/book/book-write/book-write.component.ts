@@ -59,7 +59,7 @@ export class WriteBookComponent implements OnInit {
         this._userLeave = true,
           console.log(`observe : ${ob}`),
           alert('Done!'),
-          this.route.navigate(['/list'])
+          this.route.navigate(['/book'])
       ), err => (
           console.error(`error : ${err}`),
           this._userLeave = false,

@@ -18,6 +18,7 @@ import {LoginUserService} from "./services/GetLoginUserService";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {ChartViewComponent} from "./test-view/chart-view.component";
+import {ChatComponent} from "./common/chat/chat.component";
 
 // 라우트에 딱히 문제가 없는데 자꾸 에러가났다.
 //core.es5.js:1020 ERROR Error: Uncaught (in promise): EmptyError: no elements in sequence EmptyError: no elements in sequence
@@ -37,7 +38,8 @@ import {ChartViewComponent} from "./test-view/chart-view.component";
     CalendarComponent,
     NotFoundComponent,
     ChartViewComponent,
-    BookWrapperComponent
+    BookWrapperComponent,
+      ChatComponent
   ],
   imports: [
     BrowserModule,

@@ -1,29 +1,35 @@
 <div class="w3-container w3-border">
-  <h3>
-    New Book Edit
-  </h3>
-  <button class="w3-button w3-light-gray" type="button" (click)="clickBack()">back</button>
+    <h3>
+        New Book Edit
+    </h3>
+    <button class="w3-button w3-light-gray" type="button" (click)="clickBack()" style="margin-bottom: 15px">back</button>
+
 </div>
 <!--주석 처럼 해도 가능-->
 <!--<form class="w3-container" #f="ngForm" (ngSubmit)="clickSubmit(f)" novalidate>-->
 <form class="w3-container" #f="ngForm" novalidate>
-  <ng-container *ngFor="let form of FORM_DATA; let i = index">
-    <label><b> {{form.label}}</b></label>
-    <input class="w3-input w3-border" [name]="form.label" [type]="form.type" ngModel/>
-    <br/>
-  </ng-container>
-  <ng-container>
-    <label for="book_type"><b>book_type</b></label>
-    자기개발 <input class="w3-radio" id="book_type" type="radio" name="book_type" value="1" ngModel>
-    전공 <input class="w3-radio" id="book_type" type="radio" name="book_type" value="2" ngModel>
-    <br/>
-  </ng-container>
-  <ng-container>
-    <label for="read_status"><b>read_status</b></label>
-    읽음 <input class="w3-radio" id="read_status" type="radio" name="read_status" value="1" ngModel>
-    안 읽음 <input class="w3-radio" id="read_status" type="radio" name="read_status" value="0" ngModel>
-    <br/>
-  </ng-container>
-  <button class="w3-button w3-blue" type="button" (click)="clickSubmit(f)">Sender</button>
-  <button class="w3-button w3-red" type="reset">Reset</button>
+    <ng-container *ngFor="let form of FORM_DATA; let i = index">
+        <label><b> {{form.label}}</b></label>
+        <input class="w3-input w3-border" [name]="form.label" [type]="form.type" ngModel/>
+        <br/>
+    </ng-container>
+    <ng-container>
+        <div style="margin-bottom: 15px">
+            <label for="book_type"><b>book_type</b></label>
+            <br/>
+            자기개발 <input class="w3-radio" id="book_type" type="radio" name="book_type" value="1" ngModel>
+            전공 <input class="w3-radio" id="book_type" type="radio" name="book_type" value="2" ngModel>
+        </div>
+    </ng-container>
+    <ng-container>
+        <div style="margin-bottom: 25px">
+            <label for="read_status"><b>read_status</b></label>
+            <br/>
+            읽음 <input class="w3-radio" id="read_status" type="radio" name="read_status" value="1" ngModel>
+            안 읽음 <input class="w3-radio" id="read_status" type="radio" name="read_status" value="0" ngModel>
+        </div>
+    </ng-container>
+
+    <button class="w3-button w3-blue" type="button" (click)="clickSubmit(f)">Sender</button>
+    <button class="w3-button w3-red" type="reset">Reset</button>
 </form>
