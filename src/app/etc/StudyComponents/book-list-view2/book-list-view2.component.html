@@ -1,0 +1,56 @@
+<div class="w3-container w3-white">
+<h3>{{title}}</h3>
+</div>
+<button class="w3-button w3-round-large w3-tiny w3-black w3-hover-white" (click)="reLoad()">Reload!!</button>
+<button class="w3-button w3-round-large w3-tiny w3-black w3-hover-white" (click)="clearAll()">Clear!!</button>
+<table class="w3-table w3-border w3-bordered">
+  <thead class="w3-light-gray">
+  <th>no</th>
+  <th>subject</th>
+  <th>author</th>
+  <th>book_type</th>
+  <th>note</th>
+  <th>reg_id</th>
+  <th>future_date</th>
+  <th>reg_date</th>
+  <th>update_date</th>
+  <th>read_status</th>
+  <th>review_url</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of bookModel; let i = index">
+    <td>
+      {{item.no}}
+    </td>
+    <td>
+      {{item.subject}}
+    </td>
+    <td>
+      {{item.author}}
+    </td>
+    <td>
+      {{item.book_type}}
+    </td>
+    <td>
+      {{item.note}}
+    </td>
+    <td>
+      {{item.reg_id}}
+    </td>
+    <td>
+      {{item.future_date | date : DATE_FORMAT}}
+    </td>
+    <td>
+      {{item.reg_date | date : DATE_FORMAT}}
+    </td>     <td>
+    {{item.update_date | date : DATE_FORMAT}}
+  </td>
+    <td>
+      {{item.read_status}}
+    </td>
+    <td>
+      {{item.review_url}}
+    </td>
+  </tr>
+  </tbody>
+</table>

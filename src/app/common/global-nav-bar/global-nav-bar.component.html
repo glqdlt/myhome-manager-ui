@@ -1,0 +1,31 @@
+<div class="w3-bar w3-light-gray">
+  <a class="w3-bar-item w3-button w3-hover-black" routerLink="{{item.url}}" routerLinkActive="active"
+     *ngFor="let item of menuItems;">{{item.keyword}}</a>
+  <div class="w3-dropdown-hover">
+    <!-- hover 고정하게 하는 function 나중에 필요 할 때 쓰는 걸로-->
+    <!--<button class="w3-button" (click)="dropDownChange()">-->
+
+
+    <ng-container>
+      <button class="w3-button w3-hover-black">
+        BookManager<i class="fa fa-caret-down"></i>
+      </button>
+      <div class="w3-dropdown-content w3-bar-block w3-card">
+        <a *ngFor="let menu of bookMenu;" routerLink="{{menu.url}}" class="w3-bar-item w3-button">{{menu.keyword}}</a>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="w3-dropdown-hover">
+    <ng-container>
+      <button class="w3-button w3-hover-black">
+        ServerManager<i class="fa fa-caret-down"></i>
+      </button>
+      <div class="w3-dropdown-content w3-bar-block w3-card">
+        <a *ngFor="let menu of serverManagerMenu;" routerLink="{{menu.url}}" class="w3-bar-item w3-button">{{menu.keyword}}</a>
+      </div>
+    </ng-container>
+  </div>
+
+
+</div>

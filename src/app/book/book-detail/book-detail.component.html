@@ -1,0 +1,61 @@
+<div class="w3-container w3-border">
+  <h3>
+    New Book
+  </h3>
+</div>
+<form class="w3-container">
+  <!--loading spinner-->
+  <!--http://codetunnel.io/how-to-do-loading-spinners-the-angular-2/-->
+  <label>No:</label>
+  <input readonly="readonly" type="text" class="w3-input w3-border w3-light-gray" [value]="bookModel.no"/>
+  <br/>
+
+  <div id="thumbnail_area">
+    <img src="http://via.placeholder.com/200x400"/>
+    <button class="w3-button w3-green">Upload</button>
+  </div>
+
+  <label>subject:</label>
+  <input class="w3-input w3-border" type="text" [value]="bookModel.subject">
+  <br/>
+  <label>author:</label>
+  <input class="w3-input w3-border" type="text" [value]="bookModel.author">
+  <br/>
+  <label>reg_date:</label>
+  <input readonly="readonly" class="w3-input w3-border w3-light-gray" type="text" [value]="bookModel.reg_date | date : 'yyyy.MM.dd HH:mm:ss'">
+  <br/>
+  <label>reg_id:</label>
+  <input readonly="readonly" class="w3-input w3-border w3-light-gray" type="text" [value]="bookModel.reg_id">
+  <br/>
+  <label>read_status:</label>
+  <input class="w3-input w3-border" type="text" [value]="bookModel.read_status ? '읽음': '아직'">
+  <br/>
+  <label>update_date:</label>
+  <input readonly="readonly" class="w3-input w3-border w3-light-gray" type="text" [value]="bookModel.update_date | date : 'yyyy.MM.dd HH:mm:ss'">
+  <br/>
+  <label>server_name:</label>
+  <input class="w3-input w3-border" type="text" [value]="bookModel.server_name">
+  <br/>
+  <label>future_date:</label>
+  <input class="w3-input w3-border" type="text" [value]="bookModel.future_date | date : 'yyyy.MM.dd HH:mm:ss'">
+  <button class="w3-button w3-green" (click)="onClickModal()">Calendar</button>
+  <br/>
+  <label>review_url:</label>
+  <input class="w3-input w3-border" type="text" [value]="bookModel.review_url">
+  <br/>
+  <label>note:</label>
+  <input class="w3-input w3-border" type="text" [value]="bookModel.note">
+  <br/>
+
+  <button class="w3-button w3-blue" type="button" (click)="notFunction()">Sender</button>
+  <button class="w3-button w3-red" type="button" (click)="notFunction()">Reset</button>
+</form>
+
+<div class="w3-container" [style.display]="modalBoolean ? 'block':'none'" class="w3-modal">
+  <div class="w3-modal-content">
+    <div class="w3-container">
+      <span (click)="onClickModal()" class="w3-button w3-display-topright">&times;</span>
+      <app-calendar></app-calendar>
+    </div>
+  </div>
+</div>

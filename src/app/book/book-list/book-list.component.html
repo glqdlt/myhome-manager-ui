@@ -1,0 +1,65 @@
+<div class="w3-container w3-white">
+  <div class="w3-bar" style="margin-bottom: 10px">
+    <h3>{{TITLE}}</h3>
+  </div>
+  <!--<button class="w3-button w3-round-large w3-tiny w3-black w3-hover-white" (click)="reLoad()">Reload</button>-->
+  <div class="w3-row" style="margin-bottom: 10px">
+    <button class="w3-button w3-round-large w3-tiny w3-black w3-hover-white" (click)="clearAll()">Clear</button>
+  </div>
+  <div class="w3-row" style="margin-bottom: 10px">
+    <table class="w3-table w3-border w3-bordered">
+      <thead class="w3-light-gray">
+      <th>No</th>
+      <th>Subject</th>
+      <th>Author</th>
+      <th>Type</th>
+      <th>RegDate</th>
+      <th>UpDate</th>
+      <th>Status</th>
+      <th>Note</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of bookModel;">
+        <td>
+          {{item.no}}
+        </td>
+
+        <td>
+          <a routerLink="detail/{{item.no}}">{{item.subject}}</a>
+        </td>
+        <td>
+          {{item.author}}
+        </td>
+        <td>
+          {{item.book_type | bookType}}
+        </td>
+        <td>
+          {{item.reg_date | date : DATE_FORMAT}}
+        </td>
+        <td>
+          {{item.update_date | date : DATE_FORMAT}}
+        </td>
+        <td>
+          {{item.read_status ? '읽음': '아직'}}
+        </td>
+        <td>
+          {{item.note}}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="w3-bar" style="margin-bottom: 10px">
+    <a class="w3-button" (click)="pageDown()">&laquo;</a>
+    <ng-container *ngFor="let i of pagingRange">
+      <a class="w3-button" [class.w3-black]="nowPage === i" (click)="onClickPaging(i)">{{i+1}}</a>
+    </ng-container>
+    <a class="w3-button" (click)="pageUp()">&raquo;</a>
+  </div>
+
+  <div class="w3-bar" style="margin-bottom: 30px">
+    <button class="w3-button w3-white w3-border" routerLink="write">New</button>
+  </div>
+</div>
+

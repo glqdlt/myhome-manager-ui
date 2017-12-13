@@ -1,0 +1,22 @@
+<p>
+  test-time-line works!
+</p>
+
+
+
+<div style="overflow:scroll; width:1000px; height: 500px">
+  <table border="solid 1px">
+    <thead>
+    <tr>
+      <th colspan="20">hahahahahahahahaha</th>
+      <th *ngFor="let jj of timelineRow;">a</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ii of timelineCol">
+      <td colspan="20">hahahahahahahahaha</td>
+      <td *ngFor="let jj of timelineRow; let i = index" [style.color]="jj === 'x' ? 'red' : 'black' ">{{i}}{{jj}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

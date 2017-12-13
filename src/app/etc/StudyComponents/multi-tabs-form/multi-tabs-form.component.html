@@ -1,0 +1,7 @@
+<div class="tab">
+  <button *ngFor="let city of cities; let i = index" (click)="cityChange(city.name)">{{i}}번째, {{city.name}}</button>
+  <button (click)="cityChange('')">_Blank</button>
+</div>
+<div id="city" class="tabcontent">
+  <h3>{{detailCity}}</h3>
+</div>
