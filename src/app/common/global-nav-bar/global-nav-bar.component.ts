@@ -14,17 +14,17 @@ import {BookListComponent} from "../../book/book-list/book-list.component";
 export const routes: Routes = [
     {path: '', component: HomeComponentComponent, pathMatch: 'full'},
     {
-        path: 'book', component: BookWrapperComponent, children: [
-        {path: '', component: BookListComponent},
-        {path: 'detail/:id', component: BookDetailComponent},
-        {path: 'write', component: WriteBookComponent, canDeactivate: [BookWriteDeactivatedService], pathMatch: 'full'},
-    ]
+        path: 'book', component: BookWrapperComponent,
+        children: [
+            {path: '', component: BookListComponent},
+            {path: 'detail/:id', component: BookDetailComponent},
+            {path: 'write', component: WriteBookComponent, canDeactivate: [BookWriteDeactivatedService], pathMatch: 'full'},
+        ]
     },
     {path: 'charts', component: ChartViewComponent},
     {path: 'cal', component: CalendarComponent},
     {path: "login", component: LoginComponent},
     {path: "**", component: NotFoundComponent}];
-
 
 @Component({
     selector: 'app-global-nav-bar',
@@ -32,28 +32,21 @@ export const routes: Routes = [
     styleUrls: ['./global-nav-bar.component.css']
 })
 export class GlobalNavBarComponent implements OnInit {
-
-
     menuItems: object[] =
-        [
-            {keyword: 'Home', url: ''}
-        ];
+        [{keyword: 'Home', url: ''}];
 
     bookMenu: object[] = [
         {keyword: 'List', url: 'book'},
-        {keyword: 'New', url: 'book/write'}
-    ];
+        {keyword: 'New', url: 'book/write'}];
 
     serverManagerMenu: object[] = [
         {keyword: 'Management', url: 'server'},
-        {keyword: 'Add Server', url: 'server/add'}
-    ]
+        {keyword: 'Add Server', url: 'server/add'}];
 
     crawManagerMenu: object [] = [
         {keyword: 'Dashboard', url: 'craw'},
         {keyword: 'Monitoring', url: 'craw/monitoring'},
-        {keyword: 'Settings', url: 'craw/settings'}
-    ]
+        {keyword: 'Settings', url: 'craw/settings'}];
 
     constructor() {
     }

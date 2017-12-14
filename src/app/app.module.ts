@@ -26,30 +26,31 @@ import {ChatComponent} from "./common/chat/chat.component";
 // https://stackoverflow.com/questions/41131476/emptyerror-no-elements-in-sequence
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GlobalNavBarComponent,
-    LoginComponent,
-    WriteBookComponent,
-    BookListComponent,
-    BookTypePipe,
-    BookDetailComponent,
-    HomeComponentComponent,
-    CalendarComponent,
-    NotFoundComponent,
-    ChartViewComponent,
-    BookWrapperComponent,
-      ChatComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes)
-    // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
-  ],
-  providers: [RestApiService, BookWriteDeactivatedService, LoginUserService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        GlobalNavBarComponent,
+        LoginComponent,
+        WriteBookComponent,
+        BookListComponent,
+        BookTypePipe,
+        BookDetailComponent,
+        HomeComponentComponent,
+        CalendarComponent,
+        NotFoundComponent,
+        ChartViewComponent,
+        BookWrapperComponent,
+        NotFoundComponent,
+        ChatComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        RouterModule.forRoot(routes)
+        // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
+    ],
+    providers: [RestApiService, BookWriteDeactivatedService, LoginUserService],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
