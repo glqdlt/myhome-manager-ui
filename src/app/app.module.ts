@@ -20,27 +20,26 @@ import {FormsModule} from "@angular/forms";
 import {ChartViewComponent} from "./test-view/chart-view.component";
 import {ChatComponent} from "./common/chat/chat.component";
 
-// 라우트에 딱히 문제가 없는데 자꾸 에러가났다.
-//core.es5.js:1020 ERROR Error: Uncaught (in promise): EmptyError: no elements in sequence EmptyError: no elements in sequence
-// 알고봤더니 오픈소스 에러였음.
-// https://stackoverflow.com/questions/41131476/emptyerror-no-elements-in-sequence
+
+// 전개 연산자 사용
+export const myComponents = [AppComponent,
+    GlobalNavBarComponent,
+    LoginComponent,
+    WriteBookComponent,
+    BookListComponent,
+    BookTypePipe,
+    BookDetailComponent,
+    HomeComponentComponent,
+    CalendarComponent,
+    NotFoundComponent,
+    ChartViewComponent,
+    BookWrapperComponent,
+    NotFoundComponent,
+    ChatComponent]
 
 @NgModule({
     declarations: [
-        AppComponent,
-        GlobalNavBarComponent,
-        LoginComponent,
-        WriteBookComponent,
-        BookListComponent,
-        BookTypePipe,
-        BookDetailComponent,
-        HomeComponentComponent,
-        CalendarComponent,
-        NotFoundComponent,
-        ChartViewComponent,
-        BookWrapperComponent,
-        NotFoundComponent,
-        ChatComponent
+        ...myComponents
     ],
     imports: [
         BrowserModule,
