@@ -6,6 +6,7 @@ import {RestApiService} from "../../services/RestApiService";
 import {Location} from "@angular/common";
 import {LoginUserService} from "../../services/GetLoginUserService";
 import {MatDatepickerInputEvent} from "@angular/material";
+import {SpinnerService} from "../../services/SpinnerService";
 
 @Component({
     selector: 'app-book-write',
@@ -46,10 +47,9 @@ export class WriteBookComponent implements OnInit {
     my_date_picker: Date;
     read_status : boolean;
 
-    constructor(restApiService: RestApiService, route: Router, private _location: Location, private userLogin: LoginUserService) {
+    constructor(private restApiService: RestApiService, route: Router, private _location: Location, private userLogin: LoginUserService, private spinnerService : SpinnerService) {
 
         this.route = route;
-        this.httpService = restApiService;
         this._userLeave = false;
     }
 
@@ -58,9 +58,10 @@ export class WriteBookComponent implements OnInit {
 
     clickSubmit(form: NgForm) {
         this.bookModel = this.valueMaker(form);
-        this.httpService.putBook(this.bookModel).subscribe(ob => (
+        this.restApiService.putBook(this.bookModel)
+            .subscribe(ob => (
                 this._userLeave = true,
-                    console.log(`observe : ${ob}`),
+                    // console.log(`observe : ${ob}`),
                     alert('Done!'),
                     this.route.navigate(['/book'])
             ), err => (
