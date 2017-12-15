@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SpinnerService} from "../services/SpinnerService";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private spinnerService : SpinnerService) {
 
-  ngOnInit() {
   }
 
+  ngOnInit() {
+    this.spinnerService.stop();
+  }
+
+    spinnerOn() {
+        this.spinnerService.start();
+    }
+
+    spinnerOff() {
+        this.spinnerService.stop();
+    }
 }

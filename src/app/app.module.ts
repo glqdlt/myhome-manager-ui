@@ -20,8 +20,13 @@ import {FormsModule} from "@angular/forms";
 import {ChartViewComponent} from "./test-view/chart-view.component";
 import {ChatComponent} from "./common/chat/chat.component";
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatNativeDateModule, MatRadioModule} from "@angular/material";
+import {
+    MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatNativeDateModule, MatProgressSpinnerModule,
+    MatRadioModule
+} from "@angular/material";
 import {ReadStatusPipe} from "./ReadStatusPipe";
+import {SpinnerService} from "./services/SpinnerService";
+import {GlobalSpinnerComponent} from "./common/spinner/global-spinner.component";
 
 
 // 전개 연산자 사용
@@ -39,6 +44,7 @@ export const myComponents = [AppComponent,
     ChartViewComponent,
     BookWrapperComponent,
     NotFoundComponent,
+    GlobalSpinnerComponent,
     ChatComponent]
 
 @NgModule({
@@ -57,10 +63,11 @@ export const myComponents = [AppComponent,
         MatCheckboxModule,
         MatButtonModule,
         MatRadioModule,
+        MatProgressSpinnerModule,
         RouterModule.forRoot(routes)
         // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
     ],
-    providers: [RestApiService, BookWriteDeactivatedService, LoginUserService],
+    providers: [RestApiService, BookWriteDeactivatedService, LoginUserService, SpinnerService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

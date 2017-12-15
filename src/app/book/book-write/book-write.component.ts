@@ -75,11 +75,7 @@ export class WriteBookComponent implements OnInit {
         form.value.update_date = new Date();
         form.value.reg_date = new Date();
         form.value.reg_id = this.userLogin.getUserId();
-        console.log(`i'm valuemAker isRead_Status?? : ${form.value.read_status}`)
-        console.log(`i'm valuemAker isFuture_date?? : ${form.value.future_date}`)
-
         //form 에도 잘 박혀서 들어간다.
-
         return form.value;
     }
 
@@ -89,19 +85,12 @@ export class WriteBookComponent implements OnInit {
     }
 
     addEvent(s: string, event: MatDatepickerInputEvent<Date>) {
-        console.log(`${event.value}`);
-        console.log(`add`);
-        console.log(`s : ${s}`);
-        console.log(`my_date_picker ${this.my_date_picker}`);
     }
 
     changeEvent(event: MatDatepickerInputEvent<Date>) {
-        console.log(`${event.value}`);
-        console.log('change')
     }
 
     myRadioChange(event) {
-        console.log(`radioEvernt : ${event.value}`);
-        
+
     }
 }

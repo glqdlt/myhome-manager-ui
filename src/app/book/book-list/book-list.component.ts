@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Rx";
 import {Subscription} from "rxjs/Subscription";
 import {RestApiService} from "../../services/RestApiService";
 import {FormBuilder} from "@angular/forms";
+import {SpinnerService} from "../../services/SpinnerService";
 
 @Component({
     selector: 'app-book-list',
@@ -26,7 +27,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     private subscribe: Subscription;
 
 
-    constructor(private restApiService: RestApiService) {
+    constructor(private restApiService: RestApiService, private spinnerService : SpinnerService) {
         // this.setFirstPageNumb();
         this.modalBoolean = false;
         this.nowPage = 0;
@@ -45,8 +46,14 @@ export class BookListComponent implements OnInit, OnDestroy {
     }
 
     onLoad(nowPage: number) {
-        this.restApiService.getBookPage(nowPage).subscribe(
+
+        this.restApiService.getBookPage(nowPage)
+            .do(
+                (this.spinnerService.start())
+            )
+            .subscribe(
             result => (
+                this.spinnerService.stop(),
                 this.bookModel = result['data'],
                     this.totalPage = result['totalPage'],
                     this.pagingMaker(this.totalPage),
