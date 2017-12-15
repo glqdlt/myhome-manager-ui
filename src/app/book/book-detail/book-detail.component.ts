@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {RestApiService} from "../../services/RestApiService";
 import {Book} from "../../model/BookModel";
+import {MatDatepickerInputEvent} from "@angular/material";
 
 @Component({
   selector: 'app-book-detail',
@@ -15,6 +16,9 @@ export class BookDetailComponent implements OnInit {
   private bookModel: Book;
 
   modalBoolean : boolean;
+
+  @ViewChild('picker') picker;
+    myMinDate: Date;
 
   constructor(route : ActivatedRoute, httpService : RestApiService) {
     this.httpService = httpService;
@@ -49,4 +53,5 @@ export class BookDetailComponent implements OnInit {
   notFunction() {
     alert('구현 안됨');
   }
+
 }

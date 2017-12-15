@@ -1,8 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Book} from "../../model/BookModel";
-import {Observable} from "rxjs/rx";
+import {Observable} from "rxjs/Rx";
 import {Subscription} from "rxjs/Subscription";
 import {RestApiService} from "../../services/RestApiService";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
     selector: 'app-book-list',
@@ -10,7 +11,8 @@ import {RestApiService} from "../../services/RestApiService";
     styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit, OnDestroy {
-    DATE_FORMAT = 'yyyy.MM.dd HH:mm:ss';
+    // DATE_FORMAT = 'yyyy.MM.dd HH:mm:ss';
+    DATE_FORMAT = 'yyyy.MM.dd';
     TITLE: string = 'Book Manager';
 
 
@@ -29,6 +31,7 @@ export class BookListComponent implements OnInit, OnDestroy {
         this.modalBoolean = false;
         this.nowPage = 0;
         this.maxPage = 9;
+
     }
 
     ngOnInit() {

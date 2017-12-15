@@ -38,8 +38,10 @@
   <br/>
   <label>future_date:</label>
   <input class="w3-input w3-border" type="text" [value]="bookModel.future_date | date : 'yyyy.MM.dd HH:mm:ss'">
-  <button class="w3-button w3-green" (click)="onClickModal()">Calendar</button>
+  <!--<button class="w3-button w3-green" (click)="onClickModal()">Calendar</button>-->
   <br/>
+
+
   <label>review_url:</label>
   <input class="w3-input w3-border" type="text" [value]="bookModel.review_url">
   <br/>
@@ -51,11 +53,13 @@
   <button class="w3-button w3-red" type="button" (click)="notFunction()">Reset</button>
 </form>
 
-<div class="w3-container" [style.display]="modalBoolean ? 'block':'none'" class="w3-modal">
-  <div class="w3-modal-content">
-    <div class="w3-container">
-      <span (click)="onClickModal()" class="w3-button w3-display-topright">&times;</span>
-      <app-calendar></app-calendar>
-    </div>
-  </div>
-</div>
+
+<!-- calendar modal -->
+<!--<div class="w3-container" [style.display]="modalBoolean ? 'block':'none'" class="w3-modal">-->
+  <!--<div class="w3-modal-content">-->
+    <!--<div class="w3-container">-->
+      <!--<span (click)="onClickModal()" class="w3-button w3-display-topright">&times;</span>-->
+      <!--<app-calendar></app-calendar>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->

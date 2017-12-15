@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class BookTypePipe implements PipeTransform {
 
   transform(value: number): any {
-
     switch (value) {
       case 1 :
         return '자기개발'

@@ -12,8 +12,8 @@ export class BookListViewComponent implements OnInit {
   dummyData: object[];
   DATE_FORMAT = 'yyyy.MM.dd HH:mm:ss';
 
-  constructor() {
 
+  constructor() {
     this.title = 'Book list!';
   }
 

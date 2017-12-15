@@ -19,6 +19,9 @@ import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {ChartViewComponent} from "./test-view/chart-view.component";
 import {ChatComponent} from "./common/chat/chat.component";
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatNativeDateModule, MatRadioModule} from "@angular/material";
+import {ReadStatusPipe} from "./ReadStatusPipe";
 
 
 // 전개 연산자 사용
@@ -28,6 +31,7 @@ export const myComponents = [AppComponent,
     WriteBookComponent,
     BookListComponent,
     BookTypePipe,
+    ReadStatusPipe,
     BookDetailComponent,
     HomeComponentComponent,
     CalendarComponent,
@@ -45,6 +49,14 @@ export const myComponents = [AppComponent,
         BrowserModule,
         FormsModule,
         HttpClientModule,
+        NoopAnimationsModule,
+        // BrowserAnimationsModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatCheckboxModule,
+        MatButtonModule,
+        MatRadioModule,
         RouterModule.forRoot(routes)
         // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
     ],
