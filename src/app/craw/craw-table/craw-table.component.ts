@@ -1,5 +1,7 @@
 import {Component, OnInit} from "@angular/core";
-import {Craw} from "../CrawModel";
+import {Craw} from "../../model/CrawModel";
+import {RestApiService} from "../../services/RestApiService";
+import {SpinnerService} from "../../services/SpinnerService";
 
 
 @Component({
@@ -9,10 +11,38 @@ import {Craw} from "../CrawModel";
 })
 export class CrawTableComponent implements OnInit {
 
-    crawData: Craw;
+    crawData: Craw[];
+    private totalPage: any;
+    private modalBoolean: boolean;
 
-    ngOnInit() {
+    private nowPage: number;
 
+
+    constructor(private restApiService: RestApiService, private spinnerService: SpinnerService) {
+
+        this.nowPage = 0;
     }
 
+    ngOnInit() {
+        this.onLoad(this.nowPage);
+    }
+
+
+    onLoad(nowPage: number) {
+
+        this.restApiService.getCrawPage(nowPage)
+            .do(
+                (this.spinnerService.start())
+            )
+            .subscribe(
+                result => (
+                    this.spinnerService.stop(),
+                        this.crawData = result['data'],
+                        this.totalPage = result['totalPage'],
+                        this.modalBoolean = false
+                ),
+                error => (console.error(`May be Server is Die.`), this.modalBoolean = true)
+            );
+
+    }
 }

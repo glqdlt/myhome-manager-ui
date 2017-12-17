@@ -10,6 +10,7 @@ import {WriteBookComponent} from "../../book/book-write/book-write.component";
 import {BookWriteDeactivatedService} from "../../book/book-write/book-write-deactivated.service";
 import {NotFoundComponent} from "../not-found/not-found.component";
 import {BookListComponent} from "../../book/book-list/book-list.component";
+import {CrawTableComponent} from "../../craw/craw-table/craw-table.component";
 
 export const routes: Routes = [
     {path: '', component: HomeComponentComponent, pathMatch: 'full'},
@@ -18,9 +19,15 @@ export const routes: Routes = [
         children: [
             {path: '', component: BookListComponent},
             {path: 'detail/:id', component: BookDetailComponent},
-            {path: 'write', component: WriteBookComponent, canDeactivate: [BookWriteDeactivatedService], pathMatch: 'full'},
+            {
+                path: 'write',
+                component: WriteBookComponent,
+                canDeactivate: [BookWriteDeactivatedService],
+                pathMatch: 'full'
+            },
         ]
     },
+    {path: 'craw', component: CrawTableComponent},
     {path: 'charts', component: ChartViewComponent},
     {path: 'cal', component: CalendarComponent},
     {path: "login", component: LoginComponent},

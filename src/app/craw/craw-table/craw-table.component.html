@@ -1,12 +1,12 @@
 <div class="w3-container">
-    <div id="searchBar">
-        <select>
-            <option></option>
-        </select>
-    </div>
+    <!--<div id="searchBar">-->
+        <!--<select>-->
+            <!--<option></option>-->
+        <!--</select>-->
+    <!--</div>-->
     <div>
-        <table>
-            <thead>
+        <table class="w3-table w3-border w3-bordered">
+            <thead class="w3-light-gray">
             <tr>
                 <th>No</th>
                 <th>Site</th>
@@ -18,10 +18,11 @@
             <tbody>
             <tr *ngFor="let c of crawData">
                 <td>{{c.no}}</td>
-                <td><a [href]="c.url">{{c.site}}</a></td>
-                <td>{{c.craw_time}}</td>
+                <td><a [href]="c.link" target="_blank">{{c.subject}}</a></td>
+                <td>{{c.created_time}}</td>
+
                 <td>{{c.subject}}</td>
-                <td>{{c.write_time}}</td>
+                <td>{{c.board_write_date}}</td>
             </tr>
             </tbody>
         </table>
