@@ -11,11 +11,12 @@ import {BookWriteDeactivatedService} from "../../book/book-write/book-write-deac
 import {NotFoundComponent} from "../not-found/not-found.component";
 import {BookListComponent} from "../../book/book-list/book-list.component";
 import {CrawTableComponent} from "../../craw/craw-table/craw-table.component";
+import {AuthGuardService} from "../../services/AuthGuardService";
 
 export const routes: Routes = [
     {path: '', component: HomeComponentComponent, pathMatch: 'full'},
     {
-        path: 'book', component: BookWrapperComponent,
+        path: 'book', component: BookWrapperComponent, canActivate :[AuthGuardService],
         children: [
             {path: '', component: BookListComponent},
             {path: 'detail/:id', component: BookDetailComponent},

@@ -30,6 +30,8 @@ import {GlobalSpinnerComponent} from "./common/spinner/global-spinner.component"
 import {CrawTableComponent} from "./craw/craw-table/craw-table.component";
 import {errorComparator} from "tslint/lib/test/lintError";
 import {ErrorPageComponent} from "./common/error-page/error-page.component";
+import {UserLoginService} from "./services/UserLoginService";
+import {AuthGuardService} from "./services/AuthGuardService";
 
 
 // 전개 연산자 사용
@@ -72,7 +74,7 @@ export const myComponents = [AppComponent,
         RouterModule.forRoot(routes)
         // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
     ],
-    providers: [RestApiService, BookWriteDeactivatedService, LoginUserService, SpinnerService],
+    providers: [RestApiService, BookWriteDeactivatedService, LoginUserService, SpinnerService,UserLoginService,AuthGuardService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
