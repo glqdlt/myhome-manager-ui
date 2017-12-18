@@ -28,6 +28,8 @@ import {ReadStatusPipe} from "./ReadStatusPipe";
 import {SpinnerService} from "./services/SpinnerService";
 import {GlobalSpinnerComponent} from "./common/spinner/global-spinner.component";
 import {CrawTableComponent} from "./craw/craw-table/craw-table.component";
+import {errorComparator} from "tslint/lib/test/lintError";
+import {ErrorPageComponent} from "./common/error-page/error-page.component";
 
 
 // 전개 연산자 사용
@@ -45,6 +47,7 @@ export const myComponents = [AppComponent,
     ChartViewComponent,
     BookWrapperComponent,
     NotFoundComponent,
+    ErrorPageComponent,
     CrawTableComponent,
     GlobalSpinnerComponent,
     ChatComponent]

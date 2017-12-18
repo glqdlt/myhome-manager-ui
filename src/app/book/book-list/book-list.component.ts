@@ -43,6 +43,7 @@ export class BookListComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.subscribe.unsubscribe();
+        this.spinnerService.stop();
     }
 
     onLoad(nowPage: number) {

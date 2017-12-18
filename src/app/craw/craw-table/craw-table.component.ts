@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 import {Craw} from "../../model/CrawModel";
 import {RestApiService} from "../../services/RestApiService";
 import {SpinnerService} from "../../services/SpinnerService";
@@ -9,14 +9,16 @@ import {SpinnerService} from "../../services/SpinnerService";
     templateUrl: './craw-table.component.html',
     styles: ['']
 })
-export class CrawTableComponent implements OnInit {
+export class CrawTableComponent implements OnInit , OnDestroy{
+
+    ngOnDestroy(): void {
+        this.spinnerService.stop();
+    }
 
     crawData: Craw[];
     private totalPage: any;
     private modalBoolean: boolean;
-
     private nowPage: number;
-
 
     constructor(private restApiService: RestApiService, private spinnerService: SpinnerService) {
 

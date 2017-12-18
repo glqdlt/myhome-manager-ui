@@ -63,13 +63,8 @@
     <div class="w3-bar" style="margin-bottom: 30px">
         <button class="w3-border" mat-button color="accent" routerLink="write"><i class="fa fa-pencil" aria-hidden="true"></i> New Book</button>
     </div>
+
+
 </div>
 
-<div class="w3-container" [style.display]="modalBoolean ? 'block':'none'" class="w3-modal">
-    <div class="w3-modal-content">
-        <div class="w3-container">
-            <h2>Sorry.. Server is Problem..</h2>
-            <button routerLink="/" class="w3-button w3-red">Go Home</button>
-        </div>
-    </div>
-</div>
+<app-error-page [isHiding]="modalBoolean"></app-error-page>
