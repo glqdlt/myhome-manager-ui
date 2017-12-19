@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Book} from "../model/BookModel";
-
-export const RESTAPI_SERVER_ADDRESS: string = 'http://127.0.0.1:28080';
-
+import {environment} from "../../environments/environment.local";
 
 @Injectable()
 export class RestApiService {
@@ -12,16 +10,9 @@ export class RestApiService {
 
 
     constructor(private httpClient: HttpClient,) {
-        this.URL = RESTAPI_SERVER_ADDRESS;
+        this.URL = environment.apiUrl;
     }
 
-
-    getBookAll(): any {
-        // console.log(`url : ${this.URL}/book/search/all`);
-
-
-        return this.httpClient.get(this.URL + '/book/search/all');
-    }
 
     getBookPage(page: number): any {
 
