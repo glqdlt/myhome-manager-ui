@@ -1,9 +1,28 @@
-.modal {
-    width: 100px;
-    height: 100px;
-    margin:0 auto;
+html, body{
+
+}
+.main-navigation-wrapper:after{
+    clear: both;
+    display: block;
+    content: '';
+
+}
+
+#left-area{
+    float: left;
+    width: 80%;
+}
+
+#right-area{
+    float: right;
+    width: 20%;
+
+}
+
+
+.footer{
     position: absolute;
+    bottom: 0;
     left: 0;
-    right:0;
-    top: 40%;
+    right: 0;
 }

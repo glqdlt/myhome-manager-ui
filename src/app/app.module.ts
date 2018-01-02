@@ -32,10 +32,14 @@ import {errorComparator} from "tslint/lib/test/lintError";
 import {ErrorPageComponent} from "./common/error-page/error-page.component";
 import {UserLoginService} from "./services/UserLoginService";
 import {AuthGuardService} from "./services/AuthGuardService";
+import {MainHeaderComponent} from "./common/header/main-header.component";
+import {TargetAdComponent} from "./common/target-ad/target-ad.component";
+import {FooterComponent} from "./common/footer/footer.component";
 
 
 // 전개 연산자 사용
 export const myComponents = [AppComponent,
+    MainHeaderComponent,
     GlobalNavBarComponent,
     LoginComponent,
     WriteBookComponent,
@@ -43,6 +47,8 @@ export const myComponents = [AppComponent,
     BookTypePipe,
     ReadStatusPipe,
     BookDetailComponent,
+    TargetAdComponent,
+    FooterComponent,
     HomeComponentComponent,
     CalendarComponent,
     NotFoundComponent,

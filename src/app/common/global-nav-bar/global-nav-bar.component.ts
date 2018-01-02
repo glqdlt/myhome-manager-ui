@@ -16,7 +16,7 @@ import {AuthGuardService} from "../../services/AuthGuardService";
 export const routes: Routes = [
     {path: '', component: HomeComponentComponent, pathMatch: 'full'},
     {
-        path: 'book', component: BookWrapperComponent, canActivate :[AuthGuardService],
+        path: 'book', component: BookWrapperComponent, canActivate: [AuthGuardService],
         children: [
             {path: '', component: BookListComponent},
             {path: 'detail/:id', component: BookDetailComponent},
@@ -40,23 +40,21 @@ export const routes: Routes = [
     styleUrls: ['./global-nav-bar.component.css']
 })
 export class GlobalNavBarComponent implements OnInit {
-    menuItems: object[] =
-        [{keyword: 'Home', url: ''}];
 
-    bookMenu: object[] = [
-        {keyword: 'List', url: 'book'},
-        {keyword: 'New', url: 'book/write'}];
 
-    serverManagerMenu: object[] = [
-        {keyword: 'Management', url: 'server'},
-        {keyword: 'Add Server', url: 'server/add'}];
+    homeMenu: object =
+        {label: 'HOME', url: '', child: [{label: 'Home', url: ''}]};
+    bookMenu: object =
+        {label: 'Book Manager', url : 'book', child: [{label: 'List', url: 'book'}, {label: 'New', url: 'book/write'}]};
+    serverManagerMenu: object =
+        {label: 'Server Manager', url : 'server', child: [{label: 'Management', url: 'server'}, {label: 'Add Server', url: 'server/add'}]};
+    crawManagerMenu: object =
+        {label: 'Craw Manager', url: 'craw', child: [{label: 'Dashboard', url: 'craw'},{label: 'Monitoring', url: 'craw/monitoring'},{label: 'Settings', url: 'craw/settings'}]};
 
-    crawManagerMenu: object [] = [
-        {keyword: 'Dashboard', url: 'craw'},
-        {keyword: 'Monitoring', url: 'craw/monitoring'},
-        {keyword: 'Settings', url: 'craw/settings'}];
+    menuEntries: object[] = [this.homeMenu,this.bookMenu,this.serverManagerMenu,this.crawManagerMenu];
 
     constructor() {
+
     }
 
     ngOnInit() {

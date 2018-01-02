@@ -16,13 +16,13 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let c of crawData">
-                <td>{{c.no}}</td>
-                <td><a [href]="c.link" target="_blank">{{c.subject}}</a></td>
-                <td>{{c.created_time}}</td>
+            <tr *ngFor="let craw of crawData">
+                <td>{{craw.no}}</td>
+                <td><a [href]="craw.link" target="_blank">{{craw.subject}}</a></td>
+                <td>{{craw.created_time}}</td>
 
-                <td>{{c.subject}}</td>
-                <td>{{c.board_write_date}}</td>
+                <td>{{craw.subject}}</td>
+                <td>{{craw.board_write_date}}</td>
             </tr>
             </tbody>
         </table>

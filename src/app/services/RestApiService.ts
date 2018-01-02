@@ -15,8 +15,6 @@ export class RestApiService {
 
 
     getBookPage(page: number): any {
-
-        // console.log(`url : ${this.URL}/book/search/page`);
         return this.httpClient.get(this.URL + '/book/search/' + page);
     }
 

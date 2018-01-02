@@ -1,11 +1,34 @@
-<div class="w3-container w3-black">
-    <h2>{{header}}</h2>
-</div>
+<!-- header start -->
+<app-header></app-header>
+<!-- header end-->
+<!-- nav start-->
 <app-global-nav-bar></app-global-nav-bar>
-<router-outlet></router-outlet>
+<!-- nav end-->
+
+<!-- contents start -->
+<div class="contents-wrapper">
+    <div class="contents-inline">
+        <div id="left-area">
+            <router-outlet></router-outlet>
+        </div>
+        <div id="right-area">
+            <div id="chat-area">
+                <app-chat-component></app-chat-component>
+            </div>
+            <div id="ad-area">
+                <app-target-ad></app-target-ad>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal">
-<global-spinner></global-spinner>
+    <global-spinner></global-spinner>
 </div>
 
+<!-- contents end -->
 
-<!--<app-chat-component></app-chat-component>-->
+<!-- footer start -->
+<div class="footer">
+    <app-footer></app-footer>
+</div>
+<!-- footer end -->
