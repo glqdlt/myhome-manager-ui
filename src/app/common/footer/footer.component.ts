@@ -7,7 +7,14 @@ import {Component, OnInit} from "@angular/core";
 })
 
 export class FooterComponent implements  OnInit{
+    copySymbol : string;
+    copyrightYear: number;
     ngOnInit(): void {
     }
 
+
+    constructor() {
+        this.copyrightYear = new Date().getFullYear();
+        this.copySymbol = '&copy;';
+    }
 }
