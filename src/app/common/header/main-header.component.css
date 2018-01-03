@@ -1,5 +1,11 @@
+a{
+    text-decoration: none;
+}
+
+
 .main-header{
     min-height: 50px;
+    background-color: lightgray;
 }
 
 .main-header, .main-header-inline{
@@ -40,13 +46,13 @@
     float: right;
     display: block;
 }
-.user-profile-wrapper img {
+.user-profile-area img {
     margin: 0px;
     padding: 0px;
     display: inline-block;
 }
 
-.user-profile-wrapper h3{
+.user-profile-area h3{
     margin: 0px;
     padding: 0px;
     display: inline-block;
@@ -66,3 +72,34 @@
     width: 25px;
     height: 25px;
 }
+
+.user-profile-area{
+    margin-right: 12px;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.user-profile-submenu ul{
+    text-decoration: none;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 30px;
+    right: 0px;
+}
+
+.user-profile-submenu ul:after{
+    clear: both;
+    display: block;
+    content: '';
+}
+
+.user-profile-submenu li{
+    font-size: 12px;
+    background-color: #8bc34a;
+    padding: 0px;
+    margin: 0px 0px 3px;
+}
+
+

@@ -2,13 +2,23 @@
     <div class="main-header-inline">
         <div class="main-header-wrapper">
             <div class="header-logo-area">
-                <img src="http://via.placeholder.com/350x150" alt="logo" style="vertical-align: middle">
-                <h2>{{HEADER_TEXT}}</h2>
+                <a href="/" style="text-decoration: none; display: block; background-color: yellow">
+                    <img src="http://via.placeholder.com/350x150" alt="logo" style="vertical-align: middle">
+                    <h2>{{HEADER_TEXT}}</h2>
+                </a>
             </div>
             <div class="header-user-area">
                 <div class="user-profile-wrapper">
-                    <img src="http://via.placeholder.com/50x50" alt="user-face">
-                    <h3>{{userName}}</h3>
+                    <div class="user-profile-area">
+                        <img src="http://via.placeholder.com/50x50" alt="user-face">
+                        <h3>{{userName}}</h3>
+                    </div>
+                    <div class="user-profile-submenu">
+                        <ul>
+                            <li><a href="javascript:void(0)">User Edit</a></li>
+                            <li><a href="javascript:void(0)">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
