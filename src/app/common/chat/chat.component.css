@@ -1,0 +1,94 @@
+
+.chat-header{
+}
+.chat-header h3 {
+    color: white;
+    background-color: #00bcd4;
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+    color: gray;
+}
+
+.chat-input-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.chat-input-wrapper:after {
+    clear: both;
+    display: block;
+    content: ' ';
+}
+
+.chat-input-wrapper input {
+    float: left;
+    width: 80%;
+    box-sizing: padding-box;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+}
+
+.chat-input-wrapper button {
+    float: left;
+    width: 20%;
+    box-sizing: padding-box;
+    height: 30px;
+    border: none;
+}
+
+.chat-room-area {
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+.talk-area {
+    padding: 0px;
+    margin: 0px 0px 3px;
+}
+
+.user-area img {
+    max-width: 22px;
+    max-height: 22px;
+}
+
+.user-area span{
+    font-size: 9px;
+    font-weight: bolder;
+    color: white;
+    padding: 3px 5px;
+
+    background-color: #00bcd4;
+}
+
+.talk-area span {
+    font-size: 13px;
+    font-weight: lighter;
+}
+
+.chat-room-area:after{
+    clear: both;
+    display: block;
+    content: '';
+}
+
+
+.chat-sender-btn {
+    color: black;
+    background-color: gray;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1px solid lightgray;
+}
+
+.chat-sender-btn:hover {
+    color: white;
+    background-color: red;
+}
+
+.chat-sender-input {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border: 1px solid lightgray;
+}

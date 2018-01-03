@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 @Component({
     selector: 'app-chat-component',
     templateUrl: './chat.component.html',
-    styles: []
+    styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
     ngOnInit() {
