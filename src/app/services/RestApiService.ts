@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Book} from "../model/BookModel";
-import {environment} from "../../environments/environment.local";
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class RestApiService {
@@ -11,6 +11,7 @@ export class RestApiService {
 
     constructor(private httpClient: HttpClient,) {
         this.URL = environment.apiUrl;
+        console.log(`this.URL : ${this.URL}`);
     }
 
 
