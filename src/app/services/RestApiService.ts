@@ -10,8 +10,7 @@ export class RestApiService {
 
 
     constructor(private httpClient: HttpClient,) {
-        this.URL = environment.apiUrl;
-        console.log(`this.URL : ${this.URL}`);
+        this.URL = environment.apiUrl.api_gateway;
     }
 
 
