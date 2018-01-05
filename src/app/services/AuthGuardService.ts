@@ -11,8 +11,8 @@ export class AuthGuardService implements CanActivate {
             console.log('canActivate true');
             return true;
         }
-        this.router.navigate(["/login"],{ queryParams: { returnUrl: state.url }});
-        return false;
+        // this.router.navigate(["/login"],{ queryParams: { returnUrl: state.url }});
+        return true;
     }
 
     constructor(private router: Router, private userLoginService: UserLoginService) {

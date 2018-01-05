@@ -45,6 +45,5 @@ export class CrawTableComponent implements OnInit , OnDestroy{
                 ),
                 error => (console.error(`May be Server is Die.`), this.modalBoolean = true)
             );
-
     }
 }

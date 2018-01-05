@@ -19,22 +19,28 @@ import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {ChartViewComponent} from "./test-view/chart-view.component";
 import {ChatComponent} from "./common/chat/chat.component";
-import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {
-    MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatInputModule, MatNativeDateModule, MatProgressSpinnerModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
     MatRadioModule
 } from "@angular/material";
 import {ReadStatusPipe} from "./ReadStatusPipe";
 import {SpinnerService} from "./services/SpinnerService";
 import {GlobalSpinnerComponent} from "./common/spinner/global-spinner.component";
 import {CrawTableComponent} from "./craw/craw-table/craw-table.component";
-import {errorComparator} from "tslint/lib/test/lintError";
 import {ErrorPageComponent} from "./common/error-page/error-page.component";
 import {UserLoginService} from "./services/UserLoginService";
 import {AuthGuardService} from "./services/AuthGuardService";
 import {MainHeaderComponent} from "./common/header/main-header.component";
 import {TargetAdComponent} from "./common/target-ad/target-ad.component";
 import {FooterComponent} from "./common/footer/footer.component";
+import {WebsocketService} from "./services/WebsocketService";
+import {ChatService} from "./services/ChatService";
 
 
 // 전개 연산자 사용
@@ -80,7 +86,7 @@ export const myComponents = [AppComponent,
         RouterModule.forRoot(routes)
         // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
     ],
-    providers: [RestApiService, BookWriteDeactivatedService, LoginUserService, SpinnerService,UserLoginService,AuthGuardService],
+    providers: [RestApiService, BookWriteDeactivatedService, LoginUserService, SpinnerService,UserLoginService,AuthGuardService,WebsocketService,ChatService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
