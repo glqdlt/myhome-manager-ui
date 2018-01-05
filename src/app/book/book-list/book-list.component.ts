@@ -3,7 +3,6 @@ import {Book} from "../../model/BookModel";
 import {Observable} from "rxjs/Rx";
 import {Subscription} from "rxjs/Subscription";
 import {RestApiService} from "../../services/RestApiService";
-import {FormBuilder} from "@angular/forms";
 import {SpinnerService} from "../../services/SpinnerService";
 
 @Component({

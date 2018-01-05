@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes spinner {
+            to {transform: rotate(360deg);}
+        }
+
+        .spinner:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            border-top-color: #333;
+            animation: spinner .6s linear infinite;
+        }
+
+
+        @keyframes spinner-2 {
+            to {transform: rotate(360deg);}
+        }
+
+        .spinner-2:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: #07d;
+            border-bottom-color: #07d;
+            animation: spinner .8s ease infinite;
+        }
+
+        @keyframes spinner-3 {
+            to {transform: rotate(360deg);}
+        }
+
+        .spinner-3:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            margin-left: -10px;
+            border-radius: 50%;
+            border-top: 2px solid #07d;
+            border-right: 2px solid transparent;
+            animation: spinner .6s linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--<div class="spinner">-->
+
+<!--</div>-->
+<div class="spinner-2">
+
+</div>
+
+<!--<div class="spinner-3p">-->
+
+<!--</div>-->
+
+
+</body>
+</html>

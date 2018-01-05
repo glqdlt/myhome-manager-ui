@@ -14,4 +14,7 @@ export class GlobalSpinnerComponent{
     constructor(private spinnerService : SpinnerService) {
         spinnerService.getLoading$().subscribe(l => this.isLoading = l);
     }
+
+//    https://stephanwagner.me/only-css-loading-spinner
+//    TODO CSS 버전의 가벼운 Spinner
 }
