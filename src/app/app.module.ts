@@ -20,15 +20,7 @@ import {FormsModule} from "@angular/forms";
 import {ChartViewComponent} from "./test-view/chart-view.component";
 import {ChatComponent} from "./common/chat/chat.component";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {
-    MatButtonModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatRadioModule
-} from "@angular/material";
+import {MatButtonModule,MatCheckboxModule,MatDatepickerModule,MatInputModule,MatNativeDateModule,MatProgressSpinnerModule,MatRadioModule} from "@angular/material";
 import {ReadStatusPipe} from "./ReadStatusPipe";
 import {SpinnerService} from "./services/SpinnerService";
 import {GlobalSpinnerComponent} from "./common/spinner/global-spinner.component";
@@ -75,7 +67,6 @@ export const myComponents = [AppComponent,
         FormsModule,
         HttpClientModule,
         NoopAnimationsModule,
-        // BrowserAnimationsModule,
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,

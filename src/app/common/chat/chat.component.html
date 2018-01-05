@@ -4,39 +4,18 @@
     </div>
     <div class="chat-room-wrapper">
         <div class="chat-room-area">
-            <!--<div class="talk-area">-->
-                <!--<div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>-->
-                <!--<span>Hello</span></div>-->
-            <!--<div class="talk-area">-->
-                <!--<div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>-->
-                <!--<span>Hello</span></div>-->
-            <!--<div class="talk-area">-->
-                <!--<div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>-->
-                <!--<span>Hello</span></div>-->
-            <!--<div class="talk-area">-->
-                <!--<div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>-->
-                <!--<span>Hello</span></div>-->
-            <!--<div class="talk-area">-->
-                <!--<div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>-->
-                <!--<span>Hello</span></div>-->
-            <!--<div class="talk-area">-->
-                <!--<div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>-->
-                <!--<span>Hello</span></div>-->
-            <!--<div class="talk-area">-->
-                <!--<div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>-->
-                <!--<span> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span>-->
-            <!--</div>-->
             <div class="talk-area">
-                <div
-                        class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Jhun</span></div>
+                <div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Kim</span></div>
+                <span>Hello</span>
+            </div>
+            <div class="talk-area">
+                <div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>Jhun</span></div>
                 <span>Wow</span></div>
         </div>
 
     </div>
     <div class="chat-input-wrapper">
-        <input [(ngModel)]="message" maxlength="300" type="text" class="chat-sender-input" (click)="sendMessage()"/>
-        <button class="chat-sender-btn" type="button">Send</button>
+        <input #messageArea maxlength="300" type="text" class="chat-sender-input"/>
+        <button class="chat-sender-btn" type="button" (click)="sendMessage(messageArea.value)">Send</button>
     </div>
-
-
 </div>

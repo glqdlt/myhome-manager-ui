@@ -37,7 +37,6 @@ export class TestTimeLineComponent implements OnInit {
   }
 
   isPaint(){
-
     return false;
   }
 
