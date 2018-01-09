@@ -13,7 +13,7 @@ import {SpinnerService} from "../../services/SpinnerService";
     templateUrl: './book-write.component.html',
     styleUrls: ['./book-write.component.css']
 })
-export class WriteBookComponent implements OnInit {
+export class BookWriteComponent implements OnInit {
 
 
     set userLeave(bool: boolean) {

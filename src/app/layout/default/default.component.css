@@ -1,3 +1,44 @@
+.modal {
+    width: 100px;
+    height: 100px;
+    margin:0 auto;
+    position: absolute;
+    left: 0;
+    right:0;
+    top: 40%;
+}
+
+html, body{
+
+}
+.contents-inline:after{
+    clear: both;
+    display: block;
+    content: '';
+}
+
+#left-area{
+    float: left;
+    width: 80%;
+    display: block;
+}
+
+#right-area{
+    float: right;
+    width: 20%;
+    display: block;
+}
+
+#right-area div{
+    margin-bottom: 12px;
+}
+.footer{
+    display: block;
+}
+
+
+/*navigation start*/
+
 li , a, ul, .main-navigation-wrapper{
     padding: 0px;
     margin: 0px;

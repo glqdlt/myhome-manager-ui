@@ -1,4 +1,4 @@
-export class Craw {
+export interface Craw {
     no: number;
     craw_no: number;
     subject: string;

@@ -1,7 +1,0 @@
-<h2> {{loginTitle}}</h2>
-<form #f="ngForm" novalidate>
-    <label>ID:</label><input type="text" ngModel name="user_id"/>
-    <label>Password:</label><input type="password" ngModel name="user_pw"/>
-    <button type="button" (click)="loginAction(f)">Send</button>
-    <button type="button" (click)="checkAction()">Check</button>
-</form>

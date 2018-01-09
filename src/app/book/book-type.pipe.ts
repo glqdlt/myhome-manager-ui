@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'bookType'
+  name: 'BookTypePipe'
 })
 export class BookTypePipe implements PipeTransform {
 

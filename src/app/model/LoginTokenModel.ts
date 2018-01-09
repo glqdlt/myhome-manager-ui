@@ -1,4 +1,4 @@
-export class LoginToken {
+export interface LoginToken {
     token : string;
     exp : Date;
     refresh_token : string;

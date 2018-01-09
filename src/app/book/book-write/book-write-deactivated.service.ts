@@ -1,13 +1,13 @@
 import {Injectable} from "@angular/core";
 import {ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot} from "@angular/router";
-import {WriteBookComponent} from "./book-write.component";
+import {BookWriteComponent} from "./book-write.component";
 import {Observable} from "rxjs/Observable";
 
 
 @Injectable()
-export class BookWriteDeactivatedService implements CanDeactivate<WriteBookComponent> {
+export class BookWriteDeactivatedService implements CanDeactivate<BookWriteComponent> {
 
-  canDeactivate(component: WriteBookComponent, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canDeactivate(component: BookWriteComponent, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     return component.userLeave ? true : window.confirm('Do you want leave?');
   }
