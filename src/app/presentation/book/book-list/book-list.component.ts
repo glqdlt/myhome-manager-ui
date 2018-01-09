@@ -15,7 +15,6 @@ export class BookListComponent implements OnInit, OnDestroy {
     DATE_FORMAT = 'yyyy.MM.dd';
     TITLE: string = 'Book Manager';
 
-
     bookModel: Book[];
     nowPage: number;
     totalPage: number;
@@ -24,6 +23,7 @@ export class BookListComponent implements OnInit, OnDestroy {
 
     modalBoolean: boolean;
     private subscribe: Subscription;
+    p: number;
 
 
     constructor(private restApiService: RestApiService, private spinnerService : SpinnerService) {
@@ -36,8 +36,8 @@ export class BookListComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         // Observable.timer(timer, period);
-        // 5 seconds loop
-        this.subscribe = Observable.timer(0, 5000).subscribe(x => this.onLoad(this.nowPage), err => console.log(`err : ${{err}}`));
+        // 10 seconds loop
+        this.subscribe = Observable.timer(0, 10000).subscribe(x => this.onLoad(this.nowPage), err => console.log(`err : ${{err}}`));
     }
 
     ngOnDestroy(): void {
@@ -63,31 +63,9 @@ export class BookListComponent implements OnInit, OnDestroy {
         )
     };
 
-    clearAll() {
-        this.bookModel = null;
-    };
-
-    alertEndPage() {
-        alert('Page End');
-    }
-
-    pageUp() {
-        if (this.nowPage + 1 >= this.totalPage) {
-            this.alertEndPage();
-            return;
-        }
-        this.nowPage++;
-        this.onLoad(this.nowPage);
-    }
-
-    pageDown() {
-        if (this.nowPage - 1 < 0) {
-            this.alertEndPage();
-            return;
-        }
-        this.nowPage--;
-        this.onLoad(this.nowPage);
-    }
+    // clearAll() {
+    //     this.bookModel = null;
+    // };
 
     onClickPaging(numb: number) {
         this.nowPage = numb;

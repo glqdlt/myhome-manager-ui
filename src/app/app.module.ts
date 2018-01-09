@@ -1,5 +1,3 @@
-import {HomeComponentComponent} from "./home/home-component";
-import {CalendarComponent} from "./calendar/calendar.component";
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {LoginUserService} from "./services/GetLoginUserService";
@@ -9,7 +7,6 @@ import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {MatProgressSpinnerModule} from "@angular/material";
 import {SpinnerService} from "./services/SpinnerService";
 import {GlobalSpinnerComponent} from "./share/spinner/global-spinner.component";
-import {CrawTableComponent} from "./craw/craw-table/craw-table.component";
 import {UserLoginService} from "./services/UserLoginService";
 import {AuthGuardService} from "./services/AuthGuardService";
 import {MainHeaderComponent} from "./layout/default/header/main-header.component";
@@ -22,6 +19,7 @@ import {AuthComponent} from "./layout/auth/auth.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {ShareModule} from "./share/share.module";
 import {CommonModule} from "@angular/common";
+import {HomeComponentComponent} from "./presentation/home/home-component";
 
 
 // 전개 연산자 사용
@@ -32,8 +30,6 @@ export const myComponents = [AppComponent,
     TargetAdComponent,
     FooterComponent,
     HomeComponentComponent,
-    CalendarComponent,
-    CrawTableComponent,
     GlobalSpinnerComponent,
     ChatComponent]
 

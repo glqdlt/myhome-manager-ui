@@ -1,0 +1,17 @@
+#pagination-area ul {
+    list-style: none;
+}
+
+#pagination-area ul:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+
+#pagination-area li {
+    float: left;
+}
+
+#pagination-area a {
+    text-decoration: none;
+}

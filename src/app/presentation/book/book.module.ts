@@ -17,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {RestApiService} from "../../services/RestApiService";
 import {SpinnerService} from "../../services/SpinnerService";
+import {BookWrapperComponent} from "./book-wrapper/book-wrapper.component";
 
 @NgModule({
     imports: [BookRoutingModule,
@@ -30,7 +31,7 @@ import {SpinnerService} from "../../services/SpinnerService";
         MatButtonModule,
         MatRadioModule,
         MatProgressSpinnerModule, HttpClientModule,NgxPaginationModule],
-    declarations: [BookListComponent, BookDetailComponent, BookWriteComponent, BookTypePipe, ReadStatusPipe],
+    declarations: [BookWrapperComponent,BookListComponent, BookDetailComponent, BookWriteComponent, BookTypePipe, ReadStatusPipe],
     providers: [RestApiService,SpinnerService,BookWriteDeactivatedService]
 })
 export class BookModule {
