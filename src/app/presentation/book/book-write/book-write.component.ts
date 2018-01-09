@@ -5,7 +5,7 @@ import {Location} from "@angular/common";
 import {MatDatepickerInputEvent} from "@angular/material";
 import {Book} from "../../../model/BookModel";
 import {RestApiService} from "../../../services/RestApiService";
-import {LoginUserService} from "../../../services/GetLoginUserService";
+import {LoginUserService} from "../../../services/storageCurrentUserService";
 import {SpinnerService} from "../../../services/SpinnerService";
 
 @Component({

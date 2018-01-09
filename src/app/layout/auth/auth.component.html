@@ -1,4 +1,11 @@
-
 <h2>
-    This is Auth Page
+    Login Area
 </h2>
+<div>
+    <form>
+        <input #username type="text" placeholder="username">
+        <input #userpassword type="password" placeholder="password">
+        <button type="button" (click)="loginAction(username.value, userpassword.value)">Login</button>
+        <button type="reset">Reset</button>
+    </form>
+</div>

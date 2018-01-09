@@ -4,6 +4,8 @@ import {MessageObject} from "./messageObject";
 
 import Stomp from 'stompjs';
 import SockJS from 'sockjs-client';
+import {LoginUser} from "../../../model/LoginUserModel";
+import {LoginToken} from "../../../model/LoginTokenModel";
 
 
 @Component({
@@ -19,7 +21,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     private ws;
 
     talkData :MessageObject[];
-    userName : string = 'tester';
+    userName : string;
 
 
     ngOnDestroy(): void {
@@ -31,6 +33,10 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     constructor() {
         this.talkData = [];
+
+        let token : LoginToken = JSON.parse(localStorage.getItem('my-home-manager-app'));
+        console.log(token);
+        this.userName = token.username;
     }
 
     ngOnInit() {

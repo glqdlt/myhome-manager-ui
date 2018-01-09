@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
-import {LoginUserService} from "./services/GetLoginUserService";
+import {LoginUserService} from "./services/storageCurrentUserService";
 import {BrowserModule} from "@angular/platform-browser";
 import {ChatComponent} from "./layout/default/chat/chat.component";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
@@ -20,6 +20,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {ShareModule} from "./share/share.module";
 import {CommonModule} from "@angular/common";
 import {HomeComponentComponent} from "./presentation/home/home-component";
+import {HttpClientModule} from "@angular/common/http";
 
 
 // 전개 연산자 사용
@@ -44,6 +45,7 @@ export const myComponents = [AppComponent,
         NgxPaginationModule,
         MatProgressSpinnerModule,
         NoopAnimationsModule,
+        HttpClientModule,
         ShareModule
         // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
     ],

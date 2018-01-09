@@ -3,6 +3,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {DefaultComponent} from "./layout/default/default.component";
 import {AuthComponent} from "./layout/auth/auth.component";
 import {HomeComponentComponent} from "./presentation/home/home-component";
+import {AuthGuardService} from "./services/AuthGuardService";
 
 // export const routes: Routes = [
 //     {path: '', component: HomeComponentComponent, pathMatch: 'full'},
@@ -29,30 +30,30 @@ const routes: Routes =
     [
         {
             path: '',
+            canActivate: [AuthGuardService],
             component: DefaultComponent,
             children: [
                 {
                     path: '',
-                    component : HomeComponentComponent
+                    component: HomeComponentComponent
                 },
                 {
-                    path : 'book',
-                    loadChildren : './presentation/book/book.module#BookModule'
+                    path: 'book',
+                    loadChildren: './presentation/book/book.module#BookModule'
                 },
                 {
-                    path : 'craw',
-                    loadChildren : './presentation/craw/craw.module#CrawModule'
+                    path: 'craw',
+                    loadChildren: './presentation/craw/craw.module#CrawModule'
                 }
             ]
         },
         {
             path: 'login',
-            component: AuthComponent,
-            children: []
+            component: AuthComponent
         },
         {
             path: 'error',
-            loadChildren : './layout/error/error.module#ErrorModule'
+            loadChildren: './layout/error/error.module#ErrorModule'
 
         }
     ]

@@ -63,3 +63,4 @@ typings/
 .editorconfig
 package-lock.json
 yarn.lock
+/myhome-manager-ui.iml
