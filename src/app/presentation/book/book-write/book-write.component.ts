@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {Book} from "../../model/BookModel";
 import {Router} from "@angular/router";
-import {RestApiService} from "../../services/RestApiService";
 import {Location} from "@angular/common";
-import {LoginUserService} from "../../services/GetLoginUserService";
 import {MatDatepickerInputEvent} from "@angular/material";
-import {SpinnerService} from "../../services/SpinnerService";
+import {Book} from "../../../model/BookModel";
+import {RestApiService} from "../../../services/RestApiService";
+import {LoginUserService} from "../../../services/GetLoginUserService";
+import {SpinnerService} from "../../../services/SpinnerService";
 
 @Component({
     selector: 'app-book-write',

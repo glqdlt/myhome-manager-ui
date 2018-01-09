@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {RestApiService} from "../../services/RestApiService";
-import {Book} from "../../model/BookModel";
+import {RestApiService} from "../../../services/RestApiService";
+import {Book} from "../../../model/BookModel";
 
 @Component({
   selector: 'app-book-detail',

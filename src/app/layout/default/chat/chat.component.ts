@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {WebsocketService} from "../../services/WebsocketService";
+import {WebsocketService} from "../../../services/WebsocketService";
 import {MessageObject} from "./messageObject";
 
 import Stomp from 'stompjs';

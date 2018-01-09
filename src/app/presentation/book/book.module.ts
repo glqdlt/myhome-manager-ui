@@ -15,8 +15,8 @@ import {
 import {NgxPaginationModule} from "ngx-pagination";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
-import {RestApiService} from "../services/RestApiService";
-import {SpinnerService} from "../services/SpinnerService";
+import {RestApiService} from "../../services/RestApiService";
+import {SpinnerService} from "../../services/SpinnerService";
 
 @NgModule({
     imports: [BookRoutingModule,

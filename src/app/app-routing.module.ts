@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
 import {DefaultComponent} from "./layout/default/default.component";
 import {AuthComponent} from "./layout/auth/auth.component";
-import {HomeComponentComponent} from "./home/home-component";
+import {HomeComponentComponent} from "./presentation/home/home-component";
 
 // export const routes: Routes = [
 //     {path: '', component: HomeComponentComponent, pathMatch: 'full'},
@@ -37,7 +37,11 @@ const routes: Routes =
                 },
                 {
                     path : 'book',
-                    loadChildren : './book/book.module#BookModule'
+                    loadChildren : './presentation/book/book.module#BookModule'
+                },
+                {
+                    path : 'craw',
+                    loadChildren : './presentation/craw/craw.module#CrawModule'
                 }
             ]
         },

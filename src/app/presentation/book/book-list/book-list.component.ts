@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Book} from "../../model/BookModel";
 import {Observable} from "rxjs/Rx";
 import {Subscription} from "rxjs/Subscription";
-import {RestApiService} from "../../services/RestApiService";
-import {SpinnerService} from "../../services/SpinnerService";
+import {Book} from "../../../model/BookModel";
+import {RestApiService} from "../../../services/RestApiService";
+import {SpinnerService} from "../../../services/SpinnerService";
 
 @Component({
     selector: 'app-book-list',

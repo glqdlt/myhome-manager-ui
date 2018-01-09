@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from "@angular/core";
-import {Craw} from "../../model/CrawModel";
-import {RestApiService} from "../../services/RestApiService";
-import {SpinnerService} from "../../services/SpinnerService";
+import {Craw} from "../../../model/CrawModel";
+import {RestApiService} from "../../../services/RestApiService";
+import {SpinnerService} from "../../../services/SpinnerService";
 
 
 @Component({
