@@ -21,6 +21,8 @@ import {ShareModule} from "./share/share.module";
 import {CommonModule} from "@angular/common";
 import {HomeComponentComponent} from "./presentation/home/home-component";
 import {HttpClientModule} from "@angular/common/http";
+import {ProgressBarComponent} from "./layout/default/progress/progress-bar.component";
+import {NgProgressModule} from "@ngx-progressbar/core";
 
 
 // 전개 연산자 사용
@@ -32,6 +34,7 @@ export const myComponents = [AppComponent,
     FooterComponent,
     HomeComponentComponent,
     GlobalSpinnerComponent,
+    ProgressBarComponent,
     ChatComponent]
 
 @NgModule({
@@ -46,7 +49,8 @@ export const myComponents = [AppComponent,
         MatProgressSpinnerModule,
         NoopAnimationsModule,
         HttpClientModule,
-        ShareModule
+        ShareModule,
+        NgProgressModule.forRoot()
         // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
     ],
     providers: [LoginUserService, SpinnerService,UserLoginService,AuthGuardService,WebsocketService],
