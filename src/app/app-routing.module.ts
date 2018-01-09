@@ -42,9 +42,14 @@ const routes: Routes =
             ]
         },
         {
-            path: '',
+            path: 'login',
             component: AuthComponent,
             children: []
+        },
+        {
+            path: 'error',
+            loadChildren : './layout/error/error.module#ErrorModule'
+
         }
     ]
 

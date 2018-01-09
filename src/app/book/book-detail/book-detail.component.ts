@@ -1,8 +1,7 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {RestApiService} from "../../services/RestApiService";
 import {Book} from "../../model/BookModel";
-import {MatDatepickerInputEvent} from "@angular/material";
 
 @Component({
   selector: 'app-book-detail',
@@ -21,9 +20,10 @@ export class BookDetailComponent implements OnInit {
     myMinDate: Date;
 
   constructor(route : ActivatedRoute, httpService : RestApiService) {
+    console.log('book');
     this.httpService = httpService;
     this.bookID = route.snapshot.params['id'];
-    this.bookModel = new Book;
+    // this.bookModel :Book = new Book();
     this.modalBoolean = false;
   }
 

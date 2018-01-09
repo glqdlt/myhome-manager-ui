@@ -22,6 +22,7 @@ import {SpinnerService} from "../services/SpinnerService";
     imports: [BookRoutingModule,
         FormsModule,
         CommonModule,
+        NgxPaginationModule,
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,

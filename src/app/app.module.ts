@@ -1,28 +1,15 @@
 import {HomeComponentComponent} from "./home/home-component";
 import {CalendarComponent} from "./calendar/calendar.component";
-import {NotFoundComponent} from "./layout/not-found/not-found.component";
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
-import {HttpClientModule} from "@angular/common/http";
-import {RestApiService} from "./services/RestApiService";
 import {LoginUserService} from "./services/GetLoginUserService";
 import {BrowserModule} from "@angular/platform-browser";
-import {FormsModule} from "@angular/forms";
 import {ChatComponent} from "./share/chat/chat.component";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {
-    MatButtonModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatRadioModule
-} from "@angular/material";
+import {MatProgressSpinnerModule} from "@angular/material";
 import {SpinnerService} from "./services/SpinnerService";
 import {GlobalSpinnerComponent} from "./share/spinner/global-spinner.component";
 import {CrawTableComponent} from "./craw/craw-table/craw-table.component";
-import {ErrorPageComponent} from "./share/error-page/error-page.component";
 import {UserLoginService} from "./services/UserLoginService";
 import {AuthGuardService} from "./services/AuthGuardService";
 import {MainHeaderComponent} from "./share/header/main-header.component";
@@ -47,8 +34,6 @@ export const myComponents = [AppComponent,
     FooterComponent,
     HomeComponentComponent,
     CalendarComponent,
-    NotFoundComponent,
-    ErrorPageComponent,
     CrawTableComponent,
     GlobalSpinnerComponent,
     ChatComponent]
