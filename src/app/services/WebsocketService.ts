@@ -35,8 +35,9 @@ export class WebsocketService {
         // this.stompClient.debug = () => {} ;
         let _stomp = this;
         this.stompClient.connect({}, function () {
-            _stomp.stompClient.subscribe("/chat", (message) => {
+            _stomp.stompClient.subscribe("/push/chat", (message) => {
                 if (message.body) {
+                    console.log(`message body: ${message.body}`);
                 }
             });
         });
