@@ -1,13 +1,22 @@
 <div class="main-header">
     <div class="main-header-inline">
         <div class="main-header-wrapper">
-            <div class="header-logo-area">
-                <a href="/" style="text-decoration: none; display: block; background-color: yellow">
-                    <img src="http://via.placeholder.com/350x150" alt="logo" style="vertical-align: middle">
-                    <h2>{{HEADER_TEXT}}</h2>
-                </a>
+            <div class="header-area-wrapper">
+                <div class="header-logo-area">
+                    <a href="/" style="text-decoration: none; display: block; background-color: yellow">
+                        <img src="http://via.placeholder.com/350x150" alt="logo" style="vertical-align: middle">
+                        <h2>{{HEADER_TEXT}}</h2>
+                    </a>
+                </div>
+                <div class="header-nav-area" style="background-color: green">
+                    <div class="main-navigation-wrapper">
+                        <ul *ngFor="let item of menuEntries">
+                            <li><a routerLink="{{item.url}}"><span>{{item.label}}</span><i class="fa fa-caret-down"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="header-user-area">
+            <div class="header-user-area" style="background-color: red">
                 <div class="user-profile-wrapper">
                     <div class="user-profile-area">
                         <img src="http://via.placeholder.com/50x50" alt="user-face">

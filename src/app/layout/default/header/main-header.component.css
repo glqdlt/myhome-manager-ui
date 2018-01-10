@@ -4,8 +4,8 @@ a{
 
 
 .main-header{
-    min-height: 50px;
-    background-color: lightgray;
+    min-height: 30px;
+    background-color: rgb(30,30,30);
 }
 
 .main-header, .main-header-inline{
@@ -24,10 +24,29 @@ a{
     content: '';
 }
 
+.header-area-wrapper{
+    width: 50%;
+    float: left;
+}
+
+.header-area-wrapper:after{
+    clear: both;
+    display: block;
+    content: '';
+}
+
 .header-logo-area{
     float: left;
     display: block;
-    width: 50%;
+    width: 40%;
+    height: 100%;
+}
+
+.header-nav-area{
+    float: right;
+    display: block;
+    width: 60%;
+    height: 100%;
 }
 .header-user-area{
     float: right;
@@ -102,4 +121,37 @@ a{
     margin: 0px 0px 3px;
 }
 
+
+
+
+.main-navigation-wrapper:after{
+    clear: both;
+    display: block;
+    content: '';
+}
+.main-navigation-wrapper{
+    margin: 0px;
+    padding: 0px;
+}
+.main-navigation-wrapper li{
+    float: left;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.main-navigation-wrapper li:hover{
+    background-color: lightgray;
+}
+
+.main-navigation-wrapper li a{
+    text-decoration: none;
+}
+
+.main-navigation-wrapper li{
+    list-style: none;
+}
+
+.main-navigation-wrapper li i{
+    margin-left: 10px;
+}
 

@@ -27,7 +27,11 @@ html, body{
     float: right;
     width: 20%;
     display: block;
+    padding: 10px 5px;
+    border-left:  3px solid white;
 }
+
+
 
 #right-area div{
     margin-bottom: 12px;
@@ -35,54 +39,3 @@ html, body{
 .footer{
     display: block;
 }
-
-
-/*navigation start*/
-
-li , a, ul, .main-navigation-wrapper{
-    padding: 0px;
-    margin: 0px;
-}
-
-.main-navigation-wrapper{
-    margin-left: auto;
-    margin-right: auto;
-    border-bottom: 1px solid gray;
-    background-color: #1abc9c;
-    height: 50px;
-}
-
-
-
-li a{
-    text-decoration: none;
-}
-
-li{
-    list-style: none;
-}
-
-li i{
-    margin-left: 10px;
-}
-
-
-.main-navigation-wrapper:after{
-    clear: both;
-    display: block;
-    content: '';
-}
-.main-navigation-wrapper{
-    margin: 0px;
-    padding: 0px;
-}
-.main-navigation-wrapper li{
-    float: left;
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.main-navigation-wrapper li:hover{
-    background-color: lightgray;
-}
-

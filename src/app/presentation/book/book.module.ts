@@ -18,11 +18,13 @@ import {CommonModule} from "@angular/common";
 import {RestApiService} from "../../services/RestApiService";
 import {SpinnerService} from "../../services/SpinnerService";
 import {BookWrapperComponent} from "./book-wrapper/book-wrapper.component";
+import {ShareModule} from "../../share/share.module";
 
 @NgModule({
     imports: [BookRoutingModule,
         FormsModule,
         CommonModule,
+        ShareModule,
         NgxPaginationModule,
         MatInputModule,
         MatDatepickerModule,

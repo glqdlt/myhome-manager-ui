@@ -6,10 +6,8 @@ import {menuEntries} from "./menuEntries";
     styleUrls : ['./default.component.css']
 })
 export  class  DefaultComponent implements  OnInit{
-    private menuEntries: any[];
 
     constructor() {
-        this.menuEntries = menuEntries;
 
     }
 

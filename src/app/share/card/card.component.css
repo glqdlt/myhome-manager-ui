@@ -1,0 +1,35 @@
+.card-wrapper{
+    background-color: rgb(253,253,253);
+    box-shadow: 0 0 5px 2px rgb(195,195,195);
+    padding: 5px 5px;
+    margin: 10px 20px 30px;
+}
+
+.card-header{
+    padding: 10px 20px;
+}
+.card-header-inline{
+    border-bottom: 1px solid lightgray;
+}
+
+.card-header h2{
+    font-size: 21px;
+    font-weight: lighter;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+.card-header p {
+    font-size: 13px;
+    font-weight: lighter;
+    color: gray;
+    margin: 8px 0px 10px;
+
+    padding: 0px 0px;
+}
+
+
+.card-contents {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
