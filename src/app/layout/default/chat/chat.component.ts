@@ -1,10 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {WebsocketService} from "../../../services/WebsocketService";
 import {MessageObject} from "./messageObject";
 
 import Stomp from 'stompjs';
 import SockJS from 'sockjs-client';
-import {LoginUser} from "../../../model/LoginUserModel";
 import {LoginToken} from "../../../model/LoginTokenModel";
 
 
@@ -19,6 +17,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     private SPRING_SOCKS = 'http://127.0.0.1:34444/webSocketHandler'
     private NODE_SOCKS = 'ws://127.0.0.1:8999';
     private ws;
+
+    connectionSucc = false;
 
     talkData :MessageObject[];
     userName : string;
@@ -41,9 +41,10 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.springWebSocketConnection();
-
     }
 
+
+    // TODO 소켓이 끊어질 때를 subscribe 받아서 callback ==> modal popup 처리하는 걸로
     springWebSocketConnection() {
         this.ws= new SockJS(this.SPRING_SOCKS);
         this.stompClient = Stomp.over(this.ws);
@@ -52,6 +53,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         let _stomp = this;
         let _talkData = this.talkData;
         this.stompClient.connect({}, function () {
+            _stomp.connectionSucc = true;
             _stomp.stompClient.subscribe("/push/chat", (message) => {
                 if (message.body) {
                     let msg:MessageObject = JSON.parse(message.body);
@@ -59,8 +61,6 @@ export class ChatComponent implements OnInit, OnDestroy {
                 }
             });
         });
-
-        return this.stompClient;
     }
 
     sendMessage(message){

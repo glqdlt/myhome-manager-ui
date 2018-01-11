@@ -23,6 +23,7 @@ import {HomeComponentComponent} from "./presentation/home/home-component";
 import {HttpClientModule} from "@angular/common/http";
 import {ProgressBarComponent} from "./layout/default/progress/progress-bar.component";
 import {NgProgressModule} from "@ngx-progressbar/core";
+import {ServerDownErrorComponent} from "./layout/error/server-down/server-down-error.component";
 
 
 // 전개 연산자 사용

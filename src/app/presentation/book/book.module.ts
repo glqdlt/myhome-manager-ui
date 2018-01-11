@@ -19,6 +19,8 @@ import {RestApiService} from "../../services/RestApiService";
 import {SpinnerService} from "../../services/SpinnerService";
 import {BookWrapperComponent} from "./book-wrapper/book-wrapper.component";
 import {ShareModule} from "../../share/share.module";
+import {ServerDownErrorComponent} from "../../layout/error/server-down/server-down-error.component";
+import {ErrorModule} from "../../layout/error/error.module";
 
 @NgModule({
     imports: [BookRoutingModule,
@@ -32,6 +34,7 @@ import {ShareModule} from "../../share/share.module";
         MatCheckboxModule,
         MatButtonModule,
         MatRadioModule,
+        ErrorModule,
         MatProgressSpinnerModule, HttpClientModule,NgxPaginationModule],
     declarations: [BookWrapperComponent,BookListComponent, BookDetailComponent, BookWriteComponent, BookTypePipe, ReadStatusPipe],
     providers: [RestApiService,SpinnerService,BookWriteDeactivatedService]

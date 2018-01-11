@@ -4,6 +4,8 @@ import {Subscription} from "rxjs/Subscription";
 import {Book} from "../../../model/BookModel";
 import {RestApiService} from "../../../services/RestApiService";
 import {SpinnerService} from "../../../services/SpinnerService";
+import {NgProgress} from "@ngx-progressbar/core";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-book-list',
@@ -22,9 +24,12 @@ export class BookListComponent implements OnInit, OnDestroy {
     modalBoolean: boolean;
     private subscribe: Subscription;
 
+    isHiding : boolean = false;
+
     //TODO Ngx-pagination 은 api에서 모든 all 데이터를 받아와서 client에서 paging 처리하는 것이다. 만약 전체 데이터가 1gb 라면 어떻게 되는거지? 이건 좀..
-    constructor(private restApiService: RestApiService, private spinnerService: SpinnerService) {
+    constructor(private restApiService: RestApiService, private spinnerService: SpinnerService, private progressbar: NgProgress, private router : Router) {
         // this.setFirstPageNumb();
+        this.spinnerService.start();
         this.modalBoolean = false;
         this.nowPage = 0;
 
@@ -42,10 +47,9 @@ export class BookListComponent implements OnInit, OnDestroy {
     }
 
     onLoad(nowPage: number) {
-
         this.restApiService.getBookPage(nowPage)
             .do(
-                (this.spinnerService.start())
+                (this.progressbar.start())
             )
             .subscribe(
                 result => (
@@ -55,7 +59,11 @@ export class BookListComponent implements OnInit, OnDestroy {
                         this.paginationBuilder(),
                         this.modalBoolean = false
                 ),
-                error => (console.error(`May be Server is Die.`), this.modalBoolean = true)
+                error => (console.error(error),
+                    this.isHiding = true
+                    // this.router.navigateByUrl('/error/offline')
+                ),
+                done => (this.progressbar.done(), this.spinnerService.stop())
             )
     };
 

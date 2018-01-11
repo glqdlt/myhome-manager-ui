@@ -16,3 +16,16 @@
         <button class="chat-sender-btn" type="button" (click)="sendMessage(messageArea.value)">Send</button>
     </div>
 </div>
+<div class="chat-modal">
+    {{connectionSucc}}
+    <div class="chat-inner" [hidden]="connectionSucc">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span class="w3-button w3-display-topright">&times;</span>
+                <p>Try ReConnection...</p>
+            </div>
+        </div>
+        <button (click)="springWebSocketConnection()">Retry</button>
+    </div>
+</div>
+

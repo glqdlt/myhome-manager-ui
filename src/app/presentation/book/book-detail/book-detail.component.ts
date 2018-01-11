@@ -20,7 +20,6 @@ export class BookDetailComponent implements OnInit {
     myMinDate: Date;
 
   constructor(route : ActivatedRoute, httpService : RestApiService) {
-    console.log('book');
     this.httpService = httpService;
     this.bookID = route.snapshot.params['id'];
     // this.bookModel :Book = new Book();
