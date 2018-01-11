@@ -19,8 +19,6 @@ export class BookListComponent implements OnInit, OnDestroy {
     bookModel: Book[];
     nowPage: number;
     totalPage: number;
-    pagingRange;
-    pageViewMax: number = 4;
     modalBoolean: boolean;
     private subscribe: Subscription;
 
@@ -29,9 +27,8 @@ export class BookListComponent implements OnInit, OnDestroy {
     //TODO Ngx-pagination 은 api에서 모든 all 데이터를 받아와서 client에서 paging 처리하는 것이다. 만약 전체 데이터가 1gb 라면 어떻게 되는거지? 이건 좀..
     constructor(private restApiService: RestApiService, private spinnerService: SpinnerService, private progressbar: NgProgress, private router : Router) {
         // this.setFirstPageNumb();
-        this.spinnerService.start();
         this.modalBoolean = false;
-        this.nowPage = 0;
+        this.nowPage = 1;
 
     }
 
@@ -43,20 +40,20 @@ export class BookListComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.subscribe.unsubscribe();
-        this.spinnerService.stop();
     }
 
-    onLoad(nowPage: number) {
-        this.restApiService.getBookPage(nowPage)
+
+    // TODO Async / await 으로 restApiService 를 구현해야한다.
+     onLoad(nowPage: number) {
+        nowPage--;
+         this.restApiService.getBookPage(nowPage)
             .do(
                 (this.progressbar.start())
             )
             .subscribe(
                 result => (
-                    this.spinnerService.stop(),
                         this.bookModel = result['data'],
                         this.totalPage = result['totalPage'],
-                        this.paginationBuilder(),
                         this.modalBoolean = false
                 ),
                 error => (console.error(error),
@@ -71,59 +68,9 @@ export class BookListComponent implements OnInit, OnDestroy {
     //     this.bookModel = null;
     // };
 
-    onClickPaging(numb: number) {
-        this.nowPage = numb;
+    currentSync($event: number) {
+        this.nowPage = $event;
         this.onLoad(this.nowPage);
-    }
-
-    private paginationBuilder() {
-        if (this.totalPage === 0) {
-            return;
-        }
-        const range = Array();
-        if (this.totalPage !== 1) {
-            range.push(0);
-        }
-        let centerNumb = Math.floor(this.pageViewMax / 2);
-        let left = this.nowPage - centerNumb;
-        let right = this.nowPage + centerNumb;
-        if (left <= 0) {
-            right = right - left;
-        }
-        if(right > this.totalPage){
-            left =  left + (this.totalPage - right);
-        }else if(right == this.totalPage){
-            left = left -1;
-        }
-        for (let i = left; i < right; i++) {
-            if (i <= 0) {
-
-            } else if (i >= this.totalPage - 1) {
-
-            } else {
-                range.push(i);
-            }
-        }
-        range.push(this.totalPage - 1);
-        this.pagingRange = range;
-    }
-
-    prevItem() {
-        if (this.nowPage <= 0) {
-            return;
-        }
-        this.nowPage--;
-        this.onLoad(this.nowPage);
-    }
-
-    nextItem() {
-        if (this.nowPage >= (this.totalPage- 1 )) {
-            return;
-        }
-        this.nowPage++;
-        this.onLoad(this.nowPage);
-
-
     }
 }
 

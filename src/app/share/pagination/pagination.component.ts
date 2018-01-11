@@ -1,24 +1,28 @@
-import {Component, EventEmitter, Input, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 
 @Component({
     selector : 'ng2-pagination',
     templateUrl : './pagination.component.html',
     styleUrls : ['./pagination.component.css']
 })
-export class PaginationComponent{
+export class PaginationComponent implements OnInit{
 
-    @Input() pageTotal : number = 40;
+
+    @Input() pageTotal : number;
     currentPage : number = 1;
     @Output('listenClickEvent') eventCurrent : EventEmitter<number> = new EventEmitter();
-    @Input() pageMaxSize : number = 4;
+    @Input() pageMaxSize : number;
+    firstPage : number = 1;
 
     private pageRange : any[];
 
 
     constructor() {
-        this.pagingBuilder();
     }
 
+    ngOnInit(): void {
+        this.pagingBuilder();
+    }
 
     onClickPaging(numb: number) {
         this.currentPage = numb;
@@ -72,6 +76,7 @@ export class PaginationComponent{
         }
         this.currentPage--;
         this.pagingBuilder();
+        this.eventCurrent.emit(this.currentPage);
     }
 
     nextItem() {
@@ -80,6 +85,7 @@ export class PaginationComponent{
         }
         this.currentPage++;
         this.pagingBuilder();
+        this.eventCurrent.emit(this.currentPage);
     }
     
 }

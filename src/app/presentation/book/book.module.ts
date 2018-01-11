@@ -21,6 +21,7 @@ import {BookWrapperComponent} from "./book-wrapper/book-wrapper.component";
 import {ShareModule} from "../../share/share.module";
 import {ServerDownErrorComponent} from "../../layout/error/server-down/server-down-error.component";
 import {ErrorModule} from "../../layout/error/error.module";
+import {PaginationModule} from "../../share/pagination/pagination.module";
 
 @NgModule({
     imports: [BookRoutingModule,
@@ -34,6 +35,7 @@ import {ErrorModule} from "../../layout/error/error.module";
         MatCheckboxModule,
         MatButtonModule,
         MatRadioModule,
+        PaginationModule,
         ErrorModule,
         MatProgressSpinnerModule, HttpClientModule,NgxPaginationModule],
     declarations: [BookWrapperComponent,BookListComponent, BookDetailComponent, BookWriteComponent, BookTypePipe, ReadStatusPipe],

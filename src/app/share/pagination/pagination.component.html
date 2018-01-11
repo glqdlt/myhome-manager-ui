@@ -4,4 +4,5 @@
         <li *ngFor="let item of pageRange" (click)="onClickPaging(item)" [class]="currentPage === item ? 'activePage':''">{{item}}</li>
         <button (click)="nextItem()" [disabled]="pageTotal === currentPage">next</button>
     </ul>
+
 </div>

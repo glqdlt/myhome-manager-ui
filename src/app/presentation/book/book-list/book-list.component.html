@@ -50,15 +50,7 @@
         </div>
 
 
-        <div id="pagination-area">
-            <ul>
-                <button (click)="prevItem()" [class]="nowPage === 0 ? 'disablePage' : ''">prev</button>
-                <ng-container *ngFor="let item of pagingRange">
-                    <li (click)="onClickPaging(item)" [class]="nowPage === item ? 'activePage':''">{{item}}</li>
-                </ng-container>
-                <button (click)="nextItem()" [class]="totalPage === nowPage+1 ? 'disablePage' : ''">next</button>
-            </ul>
-        </div>
+        <ng2-pagination [pageMaxSize]="4" [pageTotal]="totalPage" (listenClickEvent)="currentSync($event)"></ng2-pagination>
 
 
         <!--
