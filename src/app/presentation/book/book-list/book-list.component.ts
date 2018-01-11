@@ -18,7 +18,6 @@ export class BookListComponent implements OnInit, OnDestroy {
     bookModel: Book[];
     nowPage: number;
     totalPage: number;
-    maxPage: number;
     pagingRange;
 
     pageViewMax: number = 6;
@@ -110,11 +109,13 @@ export class BookListComponent implements OnInit, OnDestroy {
     }
 
     nextItem() {
-        if (this.nowPage >= this.maxPage) {
+        if (this.nowPage >= (this.totalPage- 1 )) {
             return;
         }
         this.nowPage++;
         this.onLoad(this.nowPage);
+
+
     }
 }
 
