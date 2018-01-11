@@ -18,7 +18,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     nowPage: number;
     totalPage: number;
     pagingRange;
-    pageViewMax: number = 5;
+    pageViewMax: number = 4;
     modalBoolean: boolean;
     private subscribe: Subscription;
 
@@ -84,6 +84,8 @@ export class BookListComponent implements OnInit, OnDestroy {
         }
         if(right > this.totalPage){
             left =  left + (this.totalPage - right);
+        }else if(right == this.totalPage){
+            left = left -1;
         }
         for (let i = left; i < right; i++) {
             if (i <= 0) {
