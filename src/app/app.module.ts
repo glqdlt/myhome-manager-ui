@@ -24,6 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ProgressBarComponent} from "./layout/default/progress/progress-bar.component";
 import {NgProgressModule} from "@ngx-progressbar/core";
 import {ServerDownErrorComponent} from "./layout/error/server-down/server-down-error.component";
+import {PaginationModule} from "./share/pagination/pagination.module";
 
 
 // 전개 연산자 사용
@@ -45,6 +46,7 @@ export const myComponents = [AppComponent,
     imports: [
         BrowserModule,
         CommonModule,
+        PaginationModule,
         AppRoutingModule,
         MatMenuModule,
         NgxPaginationModule,

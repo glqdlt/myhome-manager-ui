@@ -1,0 +1,36 @@
+#pagination-area {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px 5px 10px;
+}
+#pagination-area ul {
+    list-style: none;
+}
+
+#pagination-area ul:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+
+#pagination-area li {
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 3px 5px 3px 5px;
+    width:  30px;
+}
+
+#pagination-area li:hover{
+    background-color: lightskyblue;
+}
+
+
+.activePage{
+    background-color: lightskyblue;
+}
+
+.disablePage{
+    color: lightgray;
+}
