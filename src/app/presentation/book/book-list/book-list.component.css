@@ -10,8 +10,16 @@
 
 #pagination-area li {
     float: left;
+    margin-right: 5px;
+    cursor: pointer;
 }
 
-#pagination-area a {
-    text-decoration: none;
+
+.activePage{
+    color : red;
+    font-size: 20px;
+}
+
+.disablePage{
+    display: none;
 }

@@ -26,6 +26,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     p: number;
 
 
+    //TODO Ngx-pagination 은 api에서 모든 all 데이터를 받아와서 client에서 paging 처리하는 것이다. 만약 전체 데이터가 1gb 라면 어떻게 되는거지? 이건 좀..
     constructor(private restApiService: RestApiService, private spinnerService : SpinnerService) {
         // this.setFirstPageNumb();
         this.modalBoolean = false;
@@ -54,9 +55,9 @@ export class BookListComponent implements OnInit, OnDestroy {
             .subscribe(
             result => (
                 this.spinnerService.stop(),
-                this.bookModel = result['data'],
+                this.bookModel= result['data'],
                     this.totalPage = result['totalPage'],
-                    this.pagingMaker(this.totalPage),
+                    this.pagingBuilder(this.totalPage),
                     this.modalBoolean = false
             ),
             error => (console.error(`May be Server is Die.`), this.modalBoolean = true)
@@ -72,12 +73,28 @@ export class BookListComponent implements OnInit, OnDestroy {
         this.onLoad(this.nowPage);
     }
 
-    private pagingMaker(total: number) {
+    private pagingBuilder(total: number) {
         const range = Array();
         for (let i = 0; i < total; i++) {
             range.push(i);
         }
         this.pagingRange = range;
+    }
+
+    prevItem() {
+        if(this.nowPage <=0){
+            return;
+        }
+        this.nowPage--;
+        this.onLoad(this.nowPage);
+    }
+
+    nextItem(){
+        if(this.nowPage >= this.maxPage){
+            return;
+        }
+        this.nowPage++;
+        this.onLoad(this.nowPage);
     }
 }
 

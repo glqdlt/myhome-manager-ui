@@ -1,4 +1,4 @@
-<app-card [title]="TITLE">
+<app-card [title]="">
     <div class="w3-container w3-white">
         <!--<button class="w3-button w3-round-large w3-tiny w3-black w3-hover-white" (click)="reLoad()">Reload</button>-->
         <!--<div class="w3-row" style="margin-bottom: 10px">-->
@@ -51,11 +51,17 @@
 
 
         <div id="pagination-area">
-            <ul *ngFor="let item of pagingRange | paginate: { itemsPerPage: 5, currentPage: p }">
-                <li><a href="javascript:void(0)" (click)="onClickPaging(item)">{{item}}</a></li>
+            <ul>
+                <li (click)="prevItem()" [class]="nowPage === 0 ? 'disablePage' : ''">prev</li>
+                <ng-container *ngFor="let item of pagingRange">
+                    <!--<li><a href="javascript:void(0)" (click)="onClickPaging(item)" [style.color]="nowPage === item ? 'red':'black'">{{item}}</a></li>-->
+                    <li (click)="onClickPaging(item)" [class]="nowPage === item ? 'activePage':''">{{item}}</li>
+                </ng-container>
+                <li (click)="nextItem()" [class]="maxPage === nowPage ? 'disablePage' : ''">next</li>
             </ul>
-            <pagination-controls (pageChange)="p = $event"></pagination-controls>
         </div>
+
+
         <!--
         <div class="w3-bar" style="margin-bottom: 10px">
             <a class="w3-button" (click)="pageDown()">&laquo;</a>
