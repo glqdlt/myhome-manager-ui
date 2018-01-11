@@ -21,7 +21,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     maxPage: number;
     pagingRange;
 
-    pageViewMax: number = 5;
+    pageViewMax: number = 6;
 
     modalBoolean: boolean;
     private subscribe: Subscription;
@@ -33,7 +33,6 @@ export class BookListComponent implements OnInit, OnDestroy {
         // this.setFirstPageNumb();
         this.modalBoolean = false;
         this.nowPage = 0;
-        this.maxPage = 9;
 
     }
 
@@ -80,20 +79,25 @@ export class BookListComponent implements OnInit, OnDestroy {
             return;
         }
         const range = Array();
-        range.push(0);
-        let countNumb = 0;
-        for (let viewNumb = this.nowPage; viewNumb < this.totalPage; viewNumb++) {
-            countNumb++;
-            if (viewNumb === 0) {
+        if (this.totalPage !== 1) {
+            range.push(0);
+        }
+        let centerNumb = Math.floor(this.pageViewMax / 2);
+        let left = this.nowPage - centerNumb;
+        let right = this.nowPage + centerNumb;
+        if (left <= 0) {
+            right = right - left;
+        }
+        for (let i = left; i < right; i++) {
+            if (i <= 0) {
+
+            } else if (i >= this.totalPage - 1) {
 
             } else {
-                if (countNumb > this.pageViewMax) {
-
-                } else {
-                    range.push(viewNumb);
-                }
+                range.push(i);
             }
         }
+        range.push(this.totalPage - 1);
         this.pagingRange = range;
     }
 
@@ -113,4 +117,5 @@ export class BookListComponent implements OnInit, OnDestroy {
         this.onLoad(this.nowPage);
     }
 }
+
 

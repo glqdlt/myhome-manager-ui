@@ -57,7 +57,7 @@
                     <!--<li><a href="javascript:void(0)" (click)="onClickPaging(item)" [style.color]="nowPage === item ? 'red':'black'">{{item}}</a></li>-->
                     <li (click)="onClickPaging(item)" [class]="nowPage === item ? 'activePage':''">{{item}}</li>
                 </ng-container>
-                <li (click)="nextItem()" [class]="maxPage === nowPage ? 'disablePage' : ''">next</li>
+                <li (click)="nextItem()" [class]="totalPage === nowPage+1 ? 'disablePage' : ''">next</li>
             </ul>
         </div>
 
