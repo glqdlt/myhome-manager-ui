@@ -1,3 +1,10 @@
+#pagination-area {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px 5px 10px;
+}
+
 #pagination-area ul {
     list-style: none;
 }
@@ -12,12 +19,16 @@
     float: left;
     margin-right: 5px;
     cursor: pointer;
+    padding: 3px 5px 3px 5px;
+}
+
+#pagination-area li:hover{
+    background-color: lightskyblue;
 }
 
 
 .activePage{
-    color : red;
-    font-size: 20px;
+    background-color: lightskyblue;
 }
 
 .disablePage{

@@ -52,12 +52,11 @@
 
         <div id="pagination-area">
             <ul>
-                <li (click)="prevItem()" [class]="nowPage === 0 ? 'disablePage' : ''">prev</li>
+                <button (click)="prevItem()" [class]="nowPage === 0 ? 'disablePage' : ''">prev</button>
                 <ng-container *ngFor="let item of pagingRange">
-                    <!--<li><a href="javascript:void(0)" (click)="onClickPaging(item)" [style.color]="nowPage === item ? 'red':'black'">{{item}}</a></li>-->
                     <li (click)="onClickPaging(item)" [class]="nowPage === item ? 'activePage':''">{{item}}</li>
                 </ng-container>
-                <li (click)="nextItem()" [class]="totalPage === nowPage+1 ? 'disablePage' : ''">next</li>
+                <button (click)="nextItem()" [class]="totalPage === nowPage+1 ? 'disablePage' : ''">next</button>
             </ul>
         </div>
 
