@@ -21,13 +21,15 @@ export class BookListComponent implements OnInit, OnDestroy {
     maxPage: number;
     pagingRange;
 
+    pageViewMax: number = 5;
+
     modalBoolean: boolean;
     private subscribe: Subscription;
     p: number;
 
 
     //TODO Ngx-pagination 은 api에서 모든 all 데이터를 받아와서 client에서 paging 처리하는 것이다. 만약 전체 데이터가 1gb 라면 어떻게 되는거지? 이건 좀..
-    constructor(private restApiService: RestApiService, private spinnerService : SpinnerService) {
+    constructor(private restApiService: RestApiService, private spinnerService: SpinnerService) {
         // this.setFirstPageNumb();
         this.modalBoolean = false;
         this.nowPage = 0;
@@ -53,15 +55,15 @@ export class BookListComponent implements OnInit, OnDestroy {
                 (this.spinnerService.start())
             )
             .subscribe(
-            result => (
-                this.spinnerService.stop(),
-                this.bookModel= result['data'],
-                    this.totalPage = result['totalPage'],
-                    this.pagingBuilder(this.totalPage),
-                    this.modalBoolean = false
-            ),
-            error => (console.error(`May be Server is Die.`), this.modalBoolean = true)
-        )
+                result => (
+                    this.spinnerService.stop(),
+                        this.bookModel = result['data'],
+                        this.totalPage = result['totalPage'],
+                        this.pagingBuilder(),
+                        this.modalBoolean = false
+                ),
+                error => (console.error(`May be Server is Die.`), this.modalBoolean = true)
+            )
     };
 
     // clearAll() {
@@ -73,24 +75,38 @@ export class BookListComponent implements OnInit, OnDestroy {
         this.onLoad(this.nowPage);
     }
 
-    private pagingBuilder(total: number) {
+    private pagingBuilder() {
+        if (this.totalPage === 0) {
+            return;
+        }
         const range = Array();
-        for (let i = 0; i < total; i++) {
-            range.push(i);
+        range.push(0);
+        let countNumb = 0;
+        for (let viewNumb = this.nowPage; viewNumb < this.totalPage; viewNumb++) {
+            countNumb++;
+            if (viewNumb === 0) {
+
+            } else {
+                if (countNumb > this.pageViewMax) {
+
+                } else {
+                    range.push(viewNumb);
+                }
+            }
         }
         this.pagingRange = range;
     }
 
     prevItem() {
-        if(this.nowPage <=0){
+        if (this.nowPage <= 0) {
             return;
         }
         this.nowPage--;
         this.onLoad(this.nowPage);
     }
 
-    nextItem(){
-        if(this.nowPage >= this.maxPage){
+    nextItem() {
+        if (this.nowPage >= this.maxPage) {
             return;
         }
         this.nowPage++;
