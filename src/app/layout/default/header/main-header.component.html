@@ -10,9 +10,16 @@
                 </div>
                 <div class="header-nav-area" style="background-color: green">
                     <div class="main-navigation-wrapper">
-                        <ul *ngFor="let item of menuEntries">
-                            <li><a routerLink="{{item.url}}"><span>{{item.label}}</span><i class="fa fa-caret-down"></i></a></li>
-                        </ul>
+                        <div class="top-item" *ngFor="let item of menuEntries">
+                            <div #clickArea (click)="clickToggle(clickArea)">
+                                <li class="top-child-item"><a><span>{{item.label}}</span></a></li>
+                                <div class="sub-menu" style="display: none">
+                                    <li class="child-item" *ngFor="let child of item.child">
+                                        <a routerLink="{{child.url}}"><span>{{child.label}}</span></a>
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

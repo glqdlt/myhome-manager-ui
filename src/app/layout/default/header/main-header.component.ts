@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {menuEntries} from "../menuEntries";
 
+import * as $ from 'jquery';
+
 
 @Component({
     selector: 'app-header',
@@ -25,5 +27,16 @@ export class MainHeaderComponent implements OnInit {
         localStorage.clear();
         console.log('clear');
         this.router.navigate(['login']);
+    }
+
+
+    clickToggle(area: HTMLElement) {
+        let subMenu = $(area).find('.sub-menu');
+        if (subMenu.css('display') === 'none') {
+            subMenu.css('display', 'block');
+        }else{
+            subMenu.css('display', 'none');
+        }
+
     }
 }

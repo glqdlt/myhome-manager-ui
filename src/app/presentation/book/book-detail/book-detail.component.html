@@ -1,8 +1,4 @@
-<div class="w3-container w3-border">
-    <h3>
-        New Book
-    </h3>
-</div>
+<app-card [title]="'New Book'">
 <form class="w3-container">
     <!--loading spinner-->
     <!--http://codetunnel.io/how-to-do-loading-spinners-the-angular-2/-->
@@ -49,11 +45,11 @@
     <input class="w3-input w3-border" type="text" [value]="bookModel.note">
     <br/>
 
-    <button class="w3-button w3-blue" type="button" (click)="notFunction()">Sender</button>
-    <button class="w3-button w3-red" type="button" (click)="notFunction()">Reset</button>
+    <button class="w3-button w3-blue" type="button" (click)="notDev()">Sender</button>
+    <button class="w3-button w3-red" type="button" (click)="notDev()">Reset</button>
 </form>
 
-
+</app-card>
 <!-- calendar modal -->
 <!--<div class="w3-container" [style.display]="modalBoolean ? 'block':'none'" class="w3-modal">-->
 <!--<div class="w3-modal-content">-->

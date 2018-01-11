@@ -4,7 +4,7 @@ import {LoginUserService} from "./services/storageCurrentUserService";
 import {BrowserModule} from "@angular/platform-browser";
 import {ChatComponent} from "./layout/default/chat/chat.component";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {MatProgressSpinnerModule} from "@angular/material";
+import {MatMenuModule, MatProgressSpinnerModule} from "@angular/material";
 import {SpinnerService} from "./services/SpinnerService";
 import {GlobalSpinnerComponent} from "./share/spinner/global-spinner.component";
 import {UserLoginService} from "./services/UserLoginService";
@@ -45,6 +45,7 @@ export const myComponents = [AppComponent,
         BrowserModule,
         CommonModule,
         AppRoutingModule,
+        MatMenuModule,
         NgxPaginationModule,
         MatProgressSpinnerModule,
         NoopAnimationsModule,

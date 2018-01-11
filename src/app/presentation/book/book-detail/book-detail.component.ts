@@ -50,7 +50,7 @@ export class BookDetailComponent implements OnInit {
   }
 
 
-  notFunction() {
+  notDev() {
     alert('구현 안됨');
   }
 
