@@ -12,7 +12,7 @@ export class PaginationComponent implements OnInit{
     currentPage : number = 1;
     @Output('listenClickEvent') eventCurrent : EventEmitter<number> = new EventEmitter();
     @Input() pageMaxSize : number;
-    firstPage : number = 1;
+    @Input() buttonClass : string ='btn-default';
 
     private pageRange : any[];
 

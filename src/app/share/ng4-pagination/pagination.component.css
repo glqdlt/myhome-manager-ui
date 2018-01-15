@@ -1,0 +1,58 @@
+#pagination-area {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px 5px 10px;
+}
+#pagination-area ul {
+    list-style: none;
+}
+
+#pagination-area ul:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+
+#pagination-area li {
+    display: inline-block;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 3px 5px 3px 5px;
+    text-align: center;
+    width:  30px;
+}
+
+#pagination-area li:hover{
+    background-color: lightskyblue;
+}
+
+
+.activePage{
+    background-color: lightskyblue;
+}
+
+.disablePage{
+    color: lightgray;
+}
+
+.btn-color{
+    background-color: rgb(90,167,255);
+    border-radius: 2px;
+    border: 0px;
+    color: white;
+}
+
+.btn-default{
+
+}
+
+#pagination-area button{
+    display: inline-block;
+    float: left;
+    margin: 0px 10px 3px 10px;
+}
+
+#pagination-area button:hover{
+    opacity: 0.6;
+}

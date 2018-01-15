@@ -24,10 +24,11 @@ export class BookListComponent implements OnInit, OnDestroy {
 
     isHiding : boolean = false;
 
+    //TODO Ngx-pagination 은 api에서 모든 all 데이터를 받아와서 client에서 paging 처리하는 것이다. 만약 전체 데이터가 1gb 라면 어떻게 되는거지? 이건 좀..
     constructor(private restApiService: RestApiService, private spinnerService: SpinnerService, private progressbar: NgProgress, private router : Router) {
         // this.setFirstPageNumb();
         this.modalBoolean = false;
-        this.nowPage = 0;
+        this.nowPage = 1;
 
     }
 
@@ -41,7 +42,10 @@ export class BookListComponent implements OnInit, OnDestroy {
         this.subscribe.unsubscribe();
     }
 
+
+    // TODO Async / await 으로 restApiService 를 구현해야한다.
      onLoad(nowPage: number) {
+        nowPage--;
          this.restApiService.getBookPage(nowPage)
             .do(
                 (this.progressbar.start())
@@ -60,22 +64,13 @@ export class BookListComponent implements OnInit, OnDestroy {
             )
     };
 
-    sync($event) {
-        this.nowPage = $event.offset;
-        this.dataSync(this.nowPage);
-    }
+    // clearAll() {
+    //     this.bookModel = null;
+    // };
 
-    dataSync(now) {
-        this.fetch((now), (data) => {
-            this.bookModel = data['data'];
-            this.totalPage = data['totalPage'];
-        });
-    }
-
-    fetch(nowPage, callback) {
-        const now: number = (nowPage);
-        this.restApiService.getBookPage(now).subscribe(res => (callback(res)), err => console.error(err)
-        );
+    currentSync($event: number) {
+        this.nowPage = $event;
+        this.onLoad(this.nowPage);
     }
 }
 

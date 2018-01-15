@@ -24,7 +24,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ProgressBarComponent} from "./layout/default/progress/progress-bar.component";
 import {NgProgressModule} from "@ngx-progressbar/core";
 import {ServerDownErrorComponent} from "./layout/error/server-down/server-down-error.component";
-import {PaginationModule} from "./share/pagination/pagination.module";
+import {PaginationModule} from "./share/ng4-pagination/pagination.module";
 
 
 // 전개 연산자 사용

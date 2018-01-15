@@ -1,75 +1,51 @@
 <app-card [title]="">
-    <div class="w3-container w3-white">
-        <!--<button class="w3-button w3-round-large w3-tiny w3-black w3-hover-white" (click)="reLoad()">Reload</button>-->
-        <!--<div class="w3-row" style="margin-bottom: 10px">-->
-        <!--<button class="w3-button w3-round-large w3-tiny w3-black w3-hover-white" (click)="clearAll()"><i class="fa fa-trash"-->
-        <!--aria-hidden="true"></i> Clean</button>-->
-        <!--</div>-->
-        <div class="w3-row" style="margin-bottom: 10px">
-            <table class="w3-table w3-border w3-bordered">
-                <thead class="w3-light-gray">
-                <th>No</th>
-                <th>Subject</th>
-                <th>Author</th>
-                <th>Type</th>
-                <th>RegDate</th>
-                <th>UpDate</th>
-                <th>Status</th>
-                <th>Note</th>
-                </thead>
-                <tbody>
-                <tr *ngFor="let item of bookModel;">
-                    <td>
-                        {{item.no}}
-                    </td>
-
-                    <td>
-                        <a [routerLink]="['detail',item.no]">{{item.subject}}</a>
-                    </td>
-                    <td>
-                        {{item.author}}
-                    </td>
-                    <td>
-                        {{item.book_type | BookTypePipe}}
-                    </td>
-                    <td>
-                        {{item.reg_date | date : DATE_FORMAT}}
-                    </td>
-                    <td>
-                        {{item.update_date | date : DATE_FORMAT}}
-                    </td>
-                    <td>
-                        {{item.read_status | ReadStatusPipe}}
-                    </td>
-                    <td>
-                        {{item.note}}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
 
 
-        <ng2-pagination [pageMaxSize]="4" [pageTotal]="totalPage" (listenClickEvent)="currentSync($event)"></ng2-pagination>
+    <ngx-datatable
+            #table
+            class='data-table'
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [rowHeight]="50"
+            [limit]="10"
+            [offset]="nowPage"
+            [count]="totalPage"
+            [columnMode]="'force'"
+            (page)="sync($event)"
+            [externalPaging]="true"
+            [rows]='bookModel'>
+
+        <!--[selected]="selected"-->
+        <!--[selectionType]="'single'"-->
 
 
-        <!--
-        <div class="w3-bar" style="margin-bottom: 10px">
-            <a class="w3-button" (click)="pageDown()">&laquo;</a>
-            <ng-container *ngFor="let i of pagingRange">
-                <a class="w3-button" [class.w3-black]="nowPage === i" (click)="onClickPaging(i)">{{i+1}}</a>
-            </ng-container>
-            <a class="w3-button" (click)="pageUp()">&raquo;</a>
-        </div>
+        <ngx-datatable-column prop="no" name="" *ngIf="checkMode"  [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+                              [resizeable]="false" style="padding: 0px">
+            <ng-template let-row="rows" let-value="value"  ngx-datatable-cell-template="" style="padding: 0px">
+                <button style="margin: 0px" class="btn btn-danger" (click)="onDeleteBtn(value)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="No">
+            <ng-template let-row="rows" let-value="value" ngx-datatable-cell-template>
+                <a [routerLink]="['detail',value]">{{value}}</a>
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Subject"></ngx-datatable-column>
+        <ngx-datatable-column name="Author"></ngx-datatable-column>
+        <ngx-datatable-column prop="server_name" name="Server Name"></ngx-datatable-column>
+        <ngx-datatable-column prop="book_type" name="Book Type">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value | BookTypePipe}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Note">
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="reg_date">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+                {{value | date : 'yyyy.MM.dd'}}
+            </ng-template>
+        </ngx-datatable-column>
+    </ngx-datatable>
 
-
-        <div class="w3-bar" style="margin-bottom: 30px">
-            <button class="w3-border" mat-button color="accent" routerLink="write"><i class="fa fa-pencil" aria-hidden="true"></i> New Book</button>
-        </div>
-
-
-    -->
-
-    </div>
 </app-card>
 <app-server-down [isHiding]="isHiding"></app-server-down>

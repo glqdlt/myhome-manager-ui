@@ -1,0 +1,8 @@
+<div id="pagination-area">
+    <ul>
+        <button [class]="buttonClass" id="leftBtn" class="btnDefault" (click)="prevItem()" [disabled]="currentPage === 1"><</button>
+        <li *ngFor="let item of pageRange" (click)="onClickPaging(item)" [class]="currentPage === item ? 'activePage':''">{{item}}</li>
+        <button [class]="buttonClass" id="rightBtn" class="btnDefault" (click)="nextItem()" [disabled]="pageTotal === currentPage">></button>
+    </ul>
+
+</div>

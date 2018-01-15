@@ -1,9 +1,9 @@
 import {RouterModule, Routes} from "@angular/router";
-import {BookListComponent} from "./book-list/book-list.component";
 import {BookWriteComponent} from "./book-write/book-write.component";
 import {BookDetailComponent} from "./book-detail/book-detail.component";
 import {NgModule} from "@angular/core";
 import {BookWrapperComponent} from "./book-wrapper/book-wrapper.component";
+import {BookListComponent} from "./book-list/book-list.component";
 
 
 const routes : Routes = [
