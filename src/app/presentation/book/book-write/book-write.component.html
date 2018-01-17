@@ -1,63 +1,86 @@
 <button (click)="clickBack()" mat-button style="margin-bottom: 15px"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back Page</button>
-<div class="w3-container w3-border">
-    <h3>
-        New Book Edit
-    </h3>
-</div>
-<!--주석 처럼 해도 가능-->
-<!--<form class="w3-container" #f="ngForm" (ngSubmit)="clickSubmit(f)" novalidate>-->
-<div>
-    <form class="w3-container" #f="ngForm" novalidate>
-        <ng-container *ngFor="let form of FORM_DATA; let i = index">
-            <!--<label><b> {{form.label}}</b></label>-->
-            <mat-form-field class="book-write-form">
-                <input matInput [placeholder]="form.label" [name]="form.label" [type]="form.type" ngModel/>
-            </mat-form-field>
-            <br/>
-        </ng-container>
-
-        <ng-container>
-            <div style="margin-bottom: 15px">
-                <label><b>book_type</b></label>
-                <br/>
-                <mat-radio-group ngModel name="book_type">
-                    <mat-radio-button value="1">자기개발</mat-radio-button>
-                    <mat-radio-button value="2">전공</mat-radio-button>
-                </mat-radio-group>
-                <!--자기개발 <input class="w3-radio" id="book_type" type="radio" name="book_type" value="1" ngModel>-->
-                <!--전공 <input class="w3-radio" id="book_type" type="radio" name="book_type" value="2" ngModel>-->
+<app-card>
+    <form [formGroup]="myForm">
+        <div *ngIf="editMode.isEdit" class="form-group row">
+            <label class="col-sm-2 col-form-label">No</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="no" value="{{editMode.data.no}}" disabled>
             </div>
-        </ng-container>
+        </div>
 
-        <ng-container>
-            <div style="margin-bottom: 25px">
-                <label><b>read_status</b></label>
-                <br/>
-                <mat-radio-group ngModel name="read_status" (change)="myRadioChange($event)">
-                    <mat-radio-button value="0">안 읽음</mat-radio-button>
-                    <mat-radio-button value="1">읽는 중</mat-radio-button>
-                    <mat-radio-button value="2">읽음</mat-radio-button>
-                </mat-radio-group>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Subject</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="subject" placeholder="Text Input Validation" formControlName="subject">
+                <div class="messages text-danger" *ngIf="myForm.controls.subject.errors?.required">can't be blank</div>
             </div>
-        </ng-container>
+        </div>
 
-        <input type="date">
-        <input type="datetime-local">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Author</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="author"  placeholder="input author" formControlName="author">
+                <div class="messages text-danger error" *ngIf="myForm.controls.author.errors?.required">can't be blank</div>
+            </div>
+        </div>
 
-        <!-- ngModel 을 쓰고 있으므로, 굳이 dateInput 을 쓸 필요는 없다. name 프로퍼티는 꼭 있어야한다.-->
-        <label><b>future_date</b></label>
-        <ng-container>
-            <mat-form-field>
-                <!--<input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="addEvent('input',$event)"(dateChange)="changeEvent($event)" [(ngModel)]="my_date_picker" name="future_date">-->
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateInput)="addEvent('input',$event)"
-                       (dateChange)="changeEvent($event)" ngModel name="future_date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </ng-container>
-        <br/>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Server Name</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" formControlName="server_name">
+                <div class="messages text-danger error" *ngIf="myForm.controls.server_name.errors?.required">can't be blank</div>
+            </div>
+        </div>
 
-        <button mat-raised-button color="primary" (click)="clickSubmit(f)">Sender</button>
-        <button mat-raised-button color="warn" type="reset">Reset</button>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Note</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="note" placeholder="note" formControlName="note">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Review url</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="review_url" formControlName="review_url" pattern="https?://.+"
+                >
+                <div class="messages text-danger error" *ngIf="myForm.controls.review_url.errors">Url Pattern</div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Radio Button</label>
+            <div class="col-sm-10">
+                <div class="form-radio">
+                    <div class="radio radiofill radio-primary radio-inline">
+                        <label>
+                            <input type="radio" value="1" formControlName="book_type">
+                            <i class="helper"></i>자기개발
+                        </label>
+                    </div>
+                    <div class="radio radiofill radio-primary radio-inline">
+                        <label>
+                            <input type="radio" value="2" formControlName="book_type">
+                            <i class="helper"></i>전공
+                        </label>
+                    </div>
+                </div>
+                <div class="messages text-danger" *ngIf="myForm.controls.book_type.errors?.required">can't be blank</div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Future Date</label>
+            <div class="col-sm-5">
+                <input class="form-control" type="date" formControlName="future_date"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2"></label>
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary m-b-0" (click)="onSubmit()">Submit</button>
+            </div>
+        </div>
     </form>
-</div>
+</app-card>

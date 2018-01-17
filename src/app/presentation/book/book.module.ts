@@ -4,7 +4,7 @@ import {BookWriteComponent} from "./book-write/book-write.component";
 import {BookRoutingModule} from "./book-routing.module";
 import {BookWriteDeactivatedService} from "./book-write/book-write-deactivated.service";
 import {BookTypePipe} from "./book-type.pipe";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ReadStatusPipe} from "./read-status.pipe";
 import {
     MatButtonModule,
@@ -28,6 +28,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 
 @NgModule({
     imports: [BookRoutingModule,
+        ReactiveFormsModule,
         FormsModule,
         CommonModule,
         ShareModule,

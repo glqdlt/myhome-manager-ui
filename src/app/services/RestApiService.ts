@@ -26,6 +26,11 @@ export class RestApiService {
         return this.httpClient.put(this.URL + '/book/write', book);
     }
 
+    updateBook(id:number, book:any){
+        return this.httpClient.put(this.URL +'/book/update/'+id,book);
+    }
+
+
     getCrawPage(page: number): any {
         return this.httpClient.get(this.URL + '/craw/search/' + page);
     }
