@@ -1,6 +1,4 @@
 <app-card [title]="">
-
-
     <ngx-datatable
             #table
             class='data-table'
@@ -15,12 +13,6 @@
             [externalPaging]="true"
             [rows]='bookModel'>
 
-        <ngx-datatable-column prop="no" name="" *ngIf="checkMode"  [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
-                              [resizeable]="false" style="padding: 0px">
-            <ng-template let-row="rows" let-value="value"  ngx-datatable-cell-template="" style="padding: 0px">
-                <button style="margin: 0px" class="btn btn-danger" (click)="onDeleteBtn(value)"><i class="fa fa-trash" aria-hidden="true"></i></button>
-            </ng-template>
-        </ngx-datatable-column>
         <ngx-datatable-column name="No">
             <ng-template let-row="rows" let-value="value" ngx-datatable-cell-template>
                 <a [routerLink]="['detail',value]">{{value}}</a>
@@ -42,6 +34,5 @@
             </ng-template>
         </ngx-datatable-column>
     </ngx-datatable>
-
 </app-card>
 <app-server-down [isHiding]="isHiding"></app-server-down>

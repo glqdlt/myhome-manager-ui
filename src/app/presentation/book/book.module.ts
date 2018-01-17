@@ -1,8 +1,6 @@
 import {NgModule} from "@angular/core";
 import {BookDetailComponent} from "./book-detail/book-detail.component";
-import {BookWriteComponent} from "./book-write/book-write.component";
 import {BookRoutingModule} from "./book-routing.module";
-import {BookWriteDeactivatedService} from "./book-write/book-write-deactivated.service";
 import {BookTypePipe} from "./book-type.pipe";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ReadStatusPipe} from "./read-status.pipe";
@@ -25,6 +23,9 @@ import {ErrorModule} from "../../layout/error/error.module";
 import {PaginationModule} from "../../share/ng4-pagination/pagination.module";
 import {BookListComponent} from "./book-list/book-list.component";
 import {NgxDatatableModule} from "@swimlane/ngx-datatable";
+import {BookNewComponent} from "./book-new/book-new.component";
+import {FormEditorModule} from "./form-editor/form-editor.module";
+import {UiSwitchModule} from "ng2-ui-switch/dist";
 
 @NgModule({
     imports: [BookRoutingModule,
@@ -36,14 +37,16 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
         MatDatepickerModule,
         NgxDatatableModule,
         MatNativeDateModule,
+        FormEditorModule,
         MatCheckboxModule,
         MatButtonModule,
+        UiSwitchModule,
         MatRadioModule,
         PaginationModule,
         ErrorModule,
         MatProgressSpinnerModule, HttpClientModule],
-    declarations: [BookWrapperComponent, BookListComponent,BookDetailComponent, BookWriteComponent, BookTypePipe, ReadStatusPipe],
-    providers: [RestApiService,SpinnerService,BookWriteDeactivatedService]
+    declarations: [BookWrapperComponent,BookNewComponent, BookListComponent,BookDetailComponent, BookTypePipe, ReadStatusPipe],
+    providers: [RestApiService,SpinnerService]
 })
 export class BookModule {
 

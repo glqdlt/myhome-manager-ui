@@ -1,10 +1,8 @@
-<button (click)="clickBack()" mat-button style="margin-bottom: 15px"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back Page</button>
-<app-card>
     <form [formGroup]="myForm">
         <div *ngIf="editMode.isEdit" class="form-group row">
             <label class="col-sm-2 col-form-label">No</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="no" value="{{editMode.data.no}}" disabled>
+                <input type="text" class="form-control" id="no" value="{{editMode.data?.no}}" disabled>
             </div>
         </div>
 
@@ -19,7 +17,9 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Author</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="author"  placeholder="input author" formControlName="author">
+                <input type="text" class="form-control" id="author"  placeholder="input author"
+                       formControlName="author">
+
                 <div class="messages text-danger error" *ngIf="myForm.controls.author.errors?.required">can't be blank</div>
             </div>
         </div>
@@ -83,4 +83,3 @@
             </div>
         </div>
     </form>
-</app-card>

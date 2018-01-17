@@ -1,8 +1,6 @@
 import {Book} from "../../../model/BookModel";
 
-
-
-export class FormMode{
+export class FormModel{
   isEdit : boolean;
   data : Book;
 }

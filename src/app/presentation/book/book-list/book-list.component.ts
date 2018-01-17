@@ -25,7 +25,6 @@ export class BookListComponent implements OnInit, OnDestroy {
     isHiding : boolean = false;
 
     constructor(private restApiService: RestApiService, private spinnerService: SpinnerService, private progressbar: NgProgress, private router : Router) {
-        // this.setFirstPageNumb();
         this.modalBoolean = false;
         this.nowPage = 0;
 
