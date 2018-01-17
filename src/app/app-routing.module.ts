@@ -44,6 +44,10 @@ const routes: Routes =
                 {
                     path: 'craw',
                     loadChildren: './presentation/craw/craw.module#CrawModule'
+                },
+                {
+                    path: 'server',
+                    loadChildren : './presentation/server/server.module#ServerModule'
                 }
             ]
         },

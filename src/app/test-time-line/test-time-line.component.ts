@@ -7,6 +7,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TestTimeLineComponent implements OnInit {
 
+
+    // npm install d3@3.5.36 --save to set the version you need
+    //
+    // npm install @types/d3@3.5.36 --save or a higher version if you want d3 4+
+    //
+    // and then in your ts do
+    //
+    // import * as d3 from 'd3';
+    //
+    // Should work just fine
+
   ngOnInit(): void {
   }
 

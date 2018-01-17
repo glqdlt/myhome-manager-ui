@@ -10,17 +10,19 @@
                 </div>
                 <div class="header-nav-area" style="background-color: green">
                     <div class="main-navigation-wrapper">
-                        <div class="top-item" *ngFor="let item of menuEntries">
-                            <div #clickArea (click)="clickToggle(clickArea)">
-                                <li class="top-child-item"><a><span>{{item.label}}</span></a></li>
-                                <div class="sub-menu" style="display: none">
-                                    <li class="child-item" *ngFor="let child of item.child">
-                                        <a routerLink="{{child.url}}"><span>{{child.label}}</span></a>
-                                    </li>
-                                </div>
+                    <div class="top-item" *ngFor="let item of menuEntries">
+                        <div #clickArea (click)="clickToggle(clickArea)">
+                            <li class="top-child-item"><a><span>{{item.label}}</span></a></li>
+                            <div class="sub-menu" style="display: none">
+                                <li class="child-item" *ngFor="let child of item.child">
+                                    <a [routerLink]="child.url"><span>{{child.label}}</span></a>
+                                </li>
                             </div>
                         </div>
                     </div>
+                </div>
+
+
                 </div>
             </div>
             <div class="header-user-area" style="background-color: red">

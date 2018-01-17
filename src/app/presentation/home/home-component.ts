@@ -22,4 +22,6 @@ export class HomeComponentComponent implements OnInit {
     spinnerOff() {
         this.spinnerService.stop();
     }
+
+
 }

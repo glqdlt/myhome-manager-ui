@@ -15,10 +15,6 @@
             [externalPaging]="true"
             [rows]='bookModel'>
 
-        <!--[selected]="selected"-->
-        <!--[selectionType]="'single'"-->
-
-
         <ngx-datatable-column prop="no" name="" *ngIf="checkMode"  [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false"
                               [resizeable]="false" style="padding: 0px">
             <ng-template let-row="rows" let-value="value"  ngx-datatable-cell-template="" style="padding: 0px">

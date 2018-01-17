@@ -25,6 +25,8 @@ import {ProgressBarComponent} from "./layout/default/progress/progress-bar.compo
 import {NgProgressModule} from "@ngx-progressbar/core";
 import {ServerDownErrorComponent} from "./layout/error/server-down/server-down-error.component";
 import {PaginationModule} from "./share/ng4-pagination/pagination.module";
+import {TreeModule} from "angular-tree-component";
+import {MenubarModule, MenuModule} from "primeng/primeng";
 
 
 // 전개 연산자 사용
@@ -45,11 +47,13 @@ export const myComponents = [AppComponent,
     ],
     imports: [
         BrowserModule,
+        TreeModule,
         CommonModule,
         PaginationModule,
         AppRoutingModule,
         MatMenuModule,
         NgxPaginationModule,
+        MenubarModule,
         MatProgressSpinnerModule,
         NoopAnimationsModule,
         HttpClientModule,

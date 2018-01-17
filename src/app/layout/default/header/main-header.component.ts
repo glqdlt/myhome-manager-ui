@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {menuEntries} from "../menuEntries";
 
 import * as $ from 'jquery';
+import {MenuItem} from "primeng/primeng";
 
 
 @Component({
