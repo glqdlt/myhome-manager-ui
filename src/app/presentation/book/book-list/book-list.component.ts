@@ -57,7 +57,7 @@ export class BookListComponent implements OnInit, OnDestroy {
                 ),
                 done => (this.progressbar.done(), this.spinnerService.stop())
             )
-    };
+    }
 
     sync($event) {
         this.nowPage = $event.offset;
