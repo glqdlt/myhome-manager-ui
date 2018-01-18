@@ -1,7 +1,14 @@
 <app-card>
     <div style="width: 50%">
-        <app-pie-chart [data]="data">
-
+        <app-pie-chart [chart-title]="'Server A '+data.max+' GB'" [data]="data">
         </app-pie-chart>
+        <p>Max : {{data?.max}} GB</p>
     </div>
+    <div style="width: 50%">
+        <app-pie-chart [chart-title]="'Server B'" [data]="data2">
+        </app-pie-chart>
+        <p>Max : {{data2?.max}} GB</p>
+    </div>
+
+
 </app-card>

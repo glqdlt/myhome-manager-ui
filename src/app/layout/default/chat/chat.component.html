@@ -1,31 +1,32 @@
-<div class="char-area-wrapper">
-    <div class="chat-header">
-        <h3>Chat Room</h3>
-    </div>
-    <div class="chat-room-wrapper">
-        <div class="chat-room-area">
-            <div class="talk-area" *ngFor="let data of talkData">
-                <div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>{{data.user}}</span></div>
-                <span>{{data.message}}</span>
-            </div>
+<app-card>
+    <div class="char-area-wrapper">
+        <div class="chat-header">
+            <h3>Chat Room</h3>
         </div>
-
-    </div>
-    <div class="chat-input-wrapper">
-        <input #messageArea maxlength="300" type="text" class="chat-sender-input"/>
-        <button class="chat-sender-btn" type="button" (click)="sendMessage(messageArea.value)">Send</button>
-    </div>
-</div>
-<div class="chat-modal">
-    {{connectionSucc}}
-    <div class="chat-inner" [hidden]="connectionSucc">
-        <div class="w3-modal-content">
-            <div class="w3-container">
-                <span class="w3-button w3-display-topright">&times;</span>
-                <p>Try ReConnection...</p>
+        <div class="chat-room-wrapper">
+            <div class="chat-room-area">
+                <div class="talk-area" *ngFor="let data of talkData">
+                    <div class="user-area"><img src="http://via.placeholder.com/50x50" alt="userFace"><span>{{data.user}}</span></div>
+                    <span>{{data.message}}</span>
+                </div>
             </div>
-        </div>
-        <button (click)="springWebSocketConnection()">Retry</button>
-    </div>
-</div>
 
+        </div>
+        <div class="chat-input-wrapper">
+            <input #messageArea maxlength="300" type="text" class="chat-sender-input"/>
+            <button class="chat-sender-btn" type="button" (click)="sendMessage(messageArea.value)">Send</button>
+        </div>
+    </div>
+    <div class="chat-modal">
+        {{connectionSucc}}
+        <div class="chat-inner" [hidden]="connectionSucc">
+            <div class="w3-modal-content">
+                <div class="w3-container">
+                    <span class="w3-button w3-display-topright">&times;</span>
+                    <p>Try ReConnection...</p>
+                </div>
+            </div>
+            <button (click)="springWebSocketConnection()">Retry</button>
+        </div>
+    </div>
+</app-card>

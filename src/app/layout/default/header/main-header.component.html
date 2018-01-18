@@ -1,44 +1,75 @@
-<div class="main-header">
-    <div class="main-header-inline">
-        <div class="main-header-wrapper">
-            <div class="header-area-wrapper">
-                <div class="header-logo-area">
-                    <a href="/" style="text-decoration: none; display: block; background-color: yellow">
-                        <img src="http://via.placeholder.com/350x150" alt="logo" style="vertical-align: middle">
-                        <h2>{{HEADER_TEXT}}</h2>
-                    </a>
-                </div>
-                <div class="header-nav-area" style="background-color: green">
-                    <div class="main-navigation-wrapper">
-                    <div class="top-item" *ngFor="let item of menuEntries">
-                        <div #clickArea (click)="clickToggle(clickArea)">
-                            <li class="top-child-item"><a><span>{{item.label}}</span></a></li>
-                            <div class="sub-menu" style="display: none">
-                                <li class="child-item" *ngFor="let child of item.child">
-                                    <a [routerLink]="child.url"><span>{{child.label}}</span></a>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- Navbar -->
+<div>
+    <div class="w3-bar w3-theme-d2 w3-left-align">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);"
+           onclick="openNav()"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>{{HEADER_TEXT}}</a>
+        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Intro</a>
 
 
-                </div>
-            </div>
-            <div class="header-user-area" style="background-color: red">
-                <div class="user-profile-wrapper">
-                    <div class="user-profile-area">
-                        <img src="http://via.placeholder.com/50x50" alt="user-face">
-                        <h3>{{userName}}</h3>
-                    </div>
-                    <div class="user-profile-submenu">
-                        <ul>
-                            <li><a href="javascript:void(0)">User Edit</a></li>
-                            <li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="w3-dropdown-hover w3-hide-small" *ngFor="let item of menuEntries">
+            <button class="w3-button" title="Notifications">{{item.label}}<i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+                <ng-container *ngFor="let child of item.child">
+                    <a [routerLink]="[child?.url]" routerLinkActive="active-link" class="w3-bar-item w3-button">{{child?.label}}</a>
+                </ng-container>
             </div>
         </div>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+        <a href="#team" class="w3-bar-item w3-button">Team</a>
+        <a href="#work" class="w3-bar-item w3-button">Work</a>
+        <a href="#pricing" class="w3-bar-item w3-button">Price</a>
+        <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+        <a href="#" class="w3-bar-item w3-button">Search</a>
     </div>
 </div>
+
+<!--<div class="main-header">-->
+    <!--<div class="main-header-inline">-->
+        <!--<div class="main-header-wrapper">-->
+            <!--<div class="header-area-wrapper">-->
+                <!--<div class="header-logo-area">-->
+                    <!--<a href="/" style="text-decoration: none; display: block; background-color: yellow">-->
+                        <!--<img src="http://via.placeholder.com/350x150" alt="logo" style="vertical-align: middle">-->
+                        <!--<h2>{{HEADER_TEXT}}</h2>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="header-nav-area" style="background-color: green">-->
+                    <!--<div class="main-navigation-wrapper">-->
+                        <!--<div class="top-item" *ngFor="let item of menuEntries">-->
+                            <!--<div #clickArea (click)="clickToggle(clickArea)">-->
+                                <!--<li class="top-child-item"><span>{{item.label}}</span></li>-->
+                                <!--<div class="sub-menu" style="display: none">-->
+                                    <!--<li class="child-item" *ngFor="let child of item.child">-->
+                                        <!--<a href="javascript:void(0)" [routerLink]="[child.url]"-->
+                                           <!--routerLinkActive="active-link"><span>{{child?.label}}</span></a>-->
+                                    <!--</li>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="header-user-area" style="background-color: red">-->
+                <!--<div class="user-profile-wrapper">-->
+                    <!--<div class="user-profile-area">-->
+                        <!--<img src="http://via.placeholder.com/50x50" alt="user-face">-->
+                        <!--<h3>{{userName}}</h3>-->
+                    <!--</div>-->
+                    <!--<div class="user-profile-submenu">-->
+                        <!--<ul>-->
+                            <!--<li><a href="javascript:void(0)">User Edit</a></li>-->
+                            <!--<li><a href="javascript:void(0)" (click)="logout()">Logout</a></li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->

@@ -8,14 +8,18 @@ export class PieChartComponent implements OnInit{
 
 
     @Input() data : any;
+    @Input('chart-title') chartTitle : string = 'Simple Chart';
 
     options : any;
 
     constructor() {
+    }
+
+    ngOnInit(): void {
         this.options ={
             title : {
                 display : true,
-                text : 'My Title',
+                text : this.chartTitle,
                 fontSize : 16
             },
             legend : {
@@ -26,10 +30,6 @@ export class PieChartComponent implements OnInit{
             }
 
         }
-    }
-
-    ngOnInit(): void {
-
     }
 
 

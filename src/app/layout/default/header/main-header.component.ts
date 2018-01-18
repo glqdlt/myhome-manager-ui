@@ -12,7 +12,7 @@ import {MenuItem} from "primeng/primeng";
     styleUrls: ['./main-header.component.css']
 })
 export class MainHeaderComponent implements OnInit {
-    HEADER_TEXT: string = 'MyHome Management';
+    HEADER_TEXT: string = 'MyHome Manager';
     userName: string = 'Admin';
 
     private menuEntries: any[];

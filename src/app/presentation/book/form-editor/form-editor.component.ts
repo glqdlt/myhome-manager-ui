@@ -46,7 +46,8 @@ export class FormEditorComponent implements OnInit, OnDestroy, OnChanges {
 
     clickBack() {
         this._userLeave = true;
-        this._location.back();
+        console.log(this._location);
+        // this._location.back();
     }
 
 
