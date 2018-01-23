@@ -18,6 +18,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     private NODE_SOCKS = 'ws://127.0.0.1:8999';
     private ws;
 
+
     connectionSucc = false;
 
     talkData :MessageObject[];

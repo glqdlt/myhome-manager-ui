@@ -27,6 +27,7 @@ import {ServerDownErrorComponent} from "./layout/error/server-down/server-down-e
 import {PaginationModule} from "./share/ng4-pagination/pagination.module";
 import {TreeModule} from "angular-tree-component";
 import {MenubarModule, MenuModule} from "primeng/primeng";
+import {RightAreaService} from "./layout/default/RightAreaService";
 
 
 // 전개 연산자 사용
@@ -61,7 +62,7 @@ export const myComponents = [AppComponent,
         NgProgressModule.forRoot()
         // InMemoryWebApiModule.forRoot(InMomeryDatabaseService, {delay: 500, put204:false})
     ],
-    providers: [LoginUserService, SpinnerService,UserLoginService,AuthGuardService,WebsocketService],
+    providers: [LoginUserService, SpinnerService,UserLoginService,AuthGuardService,WebsocketService,RightAreaService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

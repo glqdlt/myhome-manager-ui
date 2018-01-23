@@ -1,12 +1,13 @@
 <app-card [title]="">
-
     <!-- TODO : table class 를 좀 이쁘게.. 보니깐 class 로 맵핑은 안 되고 book-list.component.css 에 있는 css의 명세를 확인해서 바꾸던지 하도록 해야함.-->
+
 
     <div>
         <label>Search Bar : </label><input type="text"/><button>Search</button>
     </div>
     <ngx-datatable
             #table
+            class="bootstrap"
             [headerHeight]="50"
             [footerHeight]="50"
             [rowHeight]="50"

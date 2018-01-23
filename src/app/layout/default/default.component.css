@@ -19,17 +19,32 @@ html, body{
 
 #left-area{
     float: left;
-    width: 80%;
     display: block;
 }
 
 #right-area{
     float: right;
-    width: 20%;
     display: block;
     padding: 10px 5px;
     border-left:  3px solid white;
 }
+
+.lOnClosed{
+    width:98%;
+}
+
+.lNotClosed{
+    width:80%;
+}
+
+.rOnClosed{
+    width: 2%;
+}
+.rNotClosed{
+    width: 20%;
+}
+
+
 
 
 

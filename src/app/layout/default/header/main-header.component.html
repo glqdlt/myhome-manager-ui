@@ -4,11 +4,9 @@
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);"
            onclick="openNav()"><i class="fa fa-bars"></i></a>
         <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>{{HEADER_TEXT}}</a>
-        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Intro</a>
-
-
         <div class="w3-dropdown-hover w3-hide-small" *ngFor="let item of menuEntries">
-            <button class="w3-button" title="Notifications">{{item.label}}<i class="fa fa-caret-down"></i></button>
+            <button class="w3-button" title="Notifications">{{item
+                .label}}<i class="fa fa-caret-down" style="margin-left: 10px"></i></button>
             <div class="w3-dropdown-content w3-card-4 w3-bar-block">
                 <ng-container *ngFor="let child of item.child">
                     <a [routerLink]="[child?.url]" routerLinkActive="active-link" class="w3-bar-item w3-button">{{child?.label}}</a>

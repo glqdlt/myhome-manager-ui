@@ -20,6 +20,7 @@ export class BookListComponent implements OnInit, OnDestroy {
     nowPage: number;
     totalPage: number;
     modalBoolean: boolean;
+    tableStyle;
     private subscribe: Subscription;
 
     isHiding : boolean = false;
@@ -27,6 +28,8 @@ export class BookListComponent implements OnInit, OnDestroy {
     constructor(private restApiService: RestApiService, private spinnerService: SpinnerService, private progressbar: NgProgress, private router : Router) {
         this.modalBoolean = false;
         this.nowPage = 0;
+
+        this.tableStyle = {pagerLeftArrow: 'pager'};
 
     }
 

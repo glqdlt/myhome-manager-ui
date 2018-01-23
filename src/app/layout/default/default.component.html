@@ -5,15 +5,24 @@
 <!-- contents start -->
 <div class="contents-wrapper">
     <div class="contents-inline">
-        <div id="left-area">
+        <div id="left-area"[ngClass]="isClosed ?'lOnClosed':'lNotClosed'">
             <router-outlet></router-outlet>
         </div>
-        <div id="right-area">
-            <div id="chat-area">
-                <app-chat-component></app-chat-component>
+
+        <div id="right-area" [ngClass]="isClosed ? 'rOnClosed': 'rNotClosed'">
+            <div id="paloma" (click)="changeClosed()">
+
+                <button>{{isClosed ? 'Open' : 'Close'}}</button>
+
             </div>
-            <div id="ad-area">
-                <app-target-ad></app-target-ad>
+
+            <div *ngIf="!isClosed">
+                <div id="chat-area">
+                    <app-chat-component></app-chat-component>
+                </div>
+                <div id="ad-area">
+                    <app-target-ad></app-target-ad>
+                </div>
             </div>
         </div>
     </div>
