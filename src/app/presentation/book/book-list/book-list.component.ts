@@ -13,8 +13,7 @@ import {Router} from "@angular/router";
     styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit, OnDestroy {
-    // DATE_FORMAT = 'yyyy.MM.dd HH:mm:ss';
-    DATE_FORMAT = 'yyyy.MM.dd';
+    DATE_FORMAT = 'hh:mm yyyy.MM.dd';
 
     bookModel: Book[];
     nowPage: number;

@@ -1,0 +1,47 @@
+.bread-wrapper{
+    background-color: rgb(253,253,253);
+    /*background-color: rgb(50,50,100);*/
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.bread-contents {
+    padding: 5px 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
+ul:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+
+li {
+    float: left;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+li i{
+    margin-right: 3px;
+}
+
+li:nth-child(odd){
+    margin-right: 4px;
+}
+li:nth-child(even){
+    margin-right: 8px;
+
+}
+
+li a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+li a:hover{
+    border-bottom: 1px solid gray;
+}
+

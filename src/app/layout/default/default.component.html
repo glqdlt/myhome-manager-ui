@@ -3,9 +3,9 @@
 <app-header></app-header>
 <!-- header end-->
 <!-- contents start -->
-<div class="contents-wrapper">
+<div class="wrapper">
     <div class="contents-inline">
-        <div id="left-area"[ngClass]="isClosed ?'lOnClosed':'lNotClosed'">
+        <div id="left-area" [ngClass]="isClosed ?'lOnClosed':'lNotClosed'">
             <router-outlet></router-outlet>
         </div>
 
@@ -30,7 +30,6 @@
 <div class="modal">
     <global-spinner></global-spinner>
 </div>
-
 <!-- contents end -->
 
 <!-- footer start -->

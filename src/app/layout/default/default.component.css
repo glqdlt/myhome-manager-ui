@@ -1,3 +1,27 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100%;
+
+}
+
+.wrapper{
+    min-height: calc(100vh - 40px);
+    margin-bottom: -40px;
+}
+
+.footer{
+    display: block;
+    height: 40px;
+    background-color: red;
+    margin: 0px;
+    padding: 0px;
+
+}
+
 .modal {
     width: 100px;
     height: 100px;
@@ -8,9 +32,6 @@
     top: 40%;
 }
 
-html, body{
-
-}
 .contents-inline:after{
     clear: both;
     display: block;
@@ -45,12 +66,6 @@ html, body{
 }
 
 
-
-
-
 #right-area div{
     margin-bottom: 12px;
-}
-.footer{
-    display: block;
 }

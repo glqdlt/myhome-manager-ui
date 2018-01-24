@@ -1,7 +1,5 @@
-<app-card [title]="">
-    <!-- TODO : table class 를 좀 이쁘게.. 보니깐 class 로 맵핑은 안 되고 book-list.component.css 에 있는 css의 명세를 확인해서 바꾸던지 하도록 해야함.-->
-
-
+<app-bread-crumb title="Book Manager"></app-bread-crumb>
+<app-card [title]="'Book List'">
     <div>
         <label>Search Bar : </label><input type="text"/><button>Search</button>
     </div>
@@ -24,21 +22,22 @@
                 <a [routerLink]="['detail',value]">{{value}}</a>
             </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Subject"></ngx-datatable-column>
-        <ngx-datatable-column name="Author"></ngx-datatable-column>
-        <ngx-datatable-column prop="server_name" name="Server Name"></ngx-datatable-column>
-        <ngx-datatable-column prop="book_type" name="Book Type">
+        <ngx-datatable-column name="Subject" prop="subject"></ngx-datatable-column>
+        <ngx-datatable-column name="Author" prop="author"></ngx-datatable-column>
+        <ngx-datatable-column name="Server" prop="server_name"></ngx-datatable-column>
+        <ngx-datatable-column name="Type" prop="book_type">
             <ng-template let-value="value" ngx-datatable-cell-template>
                 {{value | BookTypePipe}}
             </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Note">
         </ngx-datatable-column>
-        <ngx-datatable-column prop="reg_date">
+        <ngx-datatable-column name="Reg Date" prop="reg_date">
             <ng-template let-value="value" ngx-datatable-cell-template>
-                {{value | date : 'yyyy.MM.dd'}}
+                {{value | date : DATE_FORMAT}}
             </ng-template>
         </ngx-datatable-column>
+
     </ngx-datatable>
 </app-card>
 <app-server-down [isHiding]="isHiding"></app-server-down>
