@@ -14,6 +14,10 @@ export class RestApiService {
     }
 
 
+    getBookTagsAll(): any{
+        return this.httpClient.get(this.URL+'/book/search/tags/all');
+}
+
     getBookPage(page: number): any {
         return this.httpClient.get(this.URL + '/book/search/' + page);
     }

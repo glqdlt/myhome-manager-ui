@@ -25,13 +25,13 @@ export class BookListComponent implements OnInit, OnDestroy {
     isHiding : boolean = false;
     searchText: string;
     arrayOfStrings: any;
+    // https://www.npmjs.com/package/ng2-auto-complete
 
     constructor(private restApiService: RestApiService, private spinnerService: SpinnerService, private progressbar: NgProgress, private router : Router) {
         this.modalBoolean = false;
         this.nowPage = 0;
 
         this.tableStyle = {pagerLeftArrow: 'pager'};
-        this.arrayOfStrings = ['this','이순신', 'is', 'list', 'of', 'string', 'element','this','이순신', 'is', 'list', 'of', 'string', 'element','this','이순신', 'is', 'list', 'of', 'string', 'element','this','이순신', 'is', 'list', 'of', 'string', 'element'];
 
     }
 
@@ -39,10 +39,18 @@ export class BookListComponent implements OnInit, OnDestroy {
         // Observable.timer(timer, period);
         // 10 seconds loop
         this.subscribe = Observable.timer(0, 10000).subscribe(x => this.onLoad(this.nowPage), err => console.log(`err : ${{err}}`));
+        this.getTags();
     }
 
     ngOnDestroy(): void {
         this.subscribe.unsubscribe();
+    }
+
+    getTags(){
+        this.restApiService.getBookTagsAll().subscribe(
+            result => (this.arrayOfStrings = result),
+            error => (console.error(error))
+        )
     }
 
      onLoad(nowPage: number) {
@@ -86,6 +94,10 @@ export class BookListComponent implements OnInit, OnDestroy {
 
         console.log($event);
 
+    }
+
+    searchingSubject(value) {
+        console.log(value);
     }
 }
 

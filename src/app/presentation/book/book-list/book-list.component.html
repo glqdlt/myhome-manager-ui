@@ -6,8 +6,8 @@
              (valueChanged)="valChanged($event)"
              max-num-list="5"
              placeholder="enter text">
-            <input [ngModel]="searchText"/>
-            <button>Search</button>
+            <input [ngModel]="searchText" #searchTarget/>
+            <button (click)="searchingSubject(searchTarget.value)">Search</button>
         </div>
     </div>
     <ngx-datatable
