@@ -61,6 +61,8 @@
                         <td>{{bookModel?.read_status | ReadStatusPipe}}</td>
                     </tr>
                     <tr>
+                        <th>Download</th>
+                        <td><a [href]="'http://127.0.0.1:28080/book/download/'+bookModel?.no">[Download]</a></td>
                     </tr>
                     </tbody>
                 </table>
