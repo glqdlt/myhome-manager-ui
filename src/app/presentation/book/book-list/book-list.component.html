@@ -1,6 +1,14 @@
 <app-card [title]="'Book List'">
     <div>
-        <label>Search Bar : </label><input type="text"/><button>Search</button>
+        <!--<label>Search Bar : </label><input type="text"/><button>Search</button>-->
+        <div ng2-auto-complete
+             [source]="arrayOfStrings"
+             (valueChanged)="valChanged($event)"
+             max-num-list="5"
+             placeholder="enter text">
+            <input [ngModel]="searchText"/>
+            <button>Search</button>
+        </div>
     </div>
     <ngx-datatable
             #table

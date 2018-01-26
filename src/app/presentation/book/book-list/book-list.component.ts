@@ -23,12 +23,15 @@ export class BookListComponent implements OnInit, OnDestroy {
     private subscribe: Subscription;
 
     isHiding : boolean = false;
+    searchText: string;
+    arrayOfStrings: any;
 
     constructor(private restApiService: RestApiService, private spinnerService: SpinnerService, private progressbar: NgProgress, private router : Router) {
         this.modalBoolean = false;
         this.nowPage = 0;
 
         this.tableStyle = {pagerLeftArrow: 'pager'};
+        this.arrayOfStrings = ['this','이순신', 'is', 'list', 'of', 'string', 'element','this','이순신', 'is', 'list', 'of', 'string', 'element','this','이순신', 'is', 'list', 'of', 'string', 'element','this','이순신', 'is', 'list', 'of', 'string', 'element'];
 
     }
 
@@ -77,6 +80,12 @@ export class BookListComponent implements OnInit, OnDestroy {
         const now: number = (nowPage);
         this.restApiService.getBookPage(now).subscribe(res => (callback(res)), err => console.error(err)
         );
+    }
+
+    valChanged($event) {
+
+        console.log($event);
+
     }
 }
 

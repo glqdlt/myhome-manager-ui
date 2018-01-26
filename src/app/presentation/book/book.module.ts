@@ -26,6 +26,7 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {BookNewComponent} from "./book-new/book-new.component";
 import {FormEditorModule} from "./form-editor/form-editor.module";
 import {UiSwitchModule} from "ng2-ui-switch/dist";
+import {Ng2AutoCompleteModule} from "ng2-auto-complete";
 
 @NgModule({
     imports: [BookRoutingModule,
@@ -38,6 +39,7 @@ import {UiSwitchModule} from "ng2-ui-switch/dist";
         NgxDatatableModule,
         MatNativeDateModule,
         FormEditorModule,
+        Ng2AutoCompleteModule,
         MatCheckboxModule,
         MatButtonModule,
         UiSwitchModule,
