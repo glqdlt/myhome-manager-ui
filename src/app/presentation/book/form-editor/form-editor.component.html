@@ -1,85 +1,89 @@
-    <form [formGroup]="myForm">
-        <div *ngIf="editMode.isEdit" class="form-group row">
-            <label class="col-sm-2 col-form-label">No</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="no" value="{{editMode.data?.no}}" disabled>
+<form [formGroup]="myForm" class="form-horizontal">
+    <div *ngIf="editMode.isEdit" class="form-group row">
+
+        <label class="col-sm-2 control-label">번호</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="no" value="{{editMode.data?.no}}" disabled>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">제목</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="subject" placeholder="Text Input Validation"
+                   formControlName="subject">
+            <div class="messages text-danger" *ngIf="myForm.controls.subject.errors?.required">*필수 입력</div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">작가</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="author" placeholder="input author"
+                   formControlName="author">
+
+            <div class="messages text-danger error" *ngIf="myForm.controls.author.errors?.required">*필수 입력</div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">위치</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" formControlName="server_name">
+            <div class="messages text-danger error" *ngIf="myForm.controls.server_name.errors?.required">*필수 입력
             </div>
         </div>
+    </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Subject</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="subject" placeholder="Text Input Validation" formControlName="subject">
-                <div class="messages text-danger" *ngIf="myForm.controls.subject.errors?.required">can't be blank</div>
-            </div>
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">비고</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="note" placeholder="note" formControlName="note">
         </div>
+    </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Author</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="author"  placeholder="input author"
-                       formControlName="author">
-
-                <div class="messages text-danger error" *ngIf="myForm.controls.author.errors?.required">can't be blank</div>
-            </div>
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">리뷰</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="review_url" placeholder="Url Validation"
+                   formControlName="review_url" pattern="https?://.+">
+            <div class="messages text-danger error" *ngIf="myForm.controls.review_url.errors">Url Pattern</div>
         </div>
+    </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Server Name</label>
-            <div class="col-sm-10">
-                <input class="form-control" type="text" formControlName="server_name">
-                <div class="messages text-danger error" *ngIf="myForm.controls.server_name.errors?.required">can't be blank</div>
-            </div>
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">분류</label>
+        <div class="radio  radio-primary radio-inline">
+            <label>
+                <input type="radio" value="1" formControlName="book_type">자기개발
+            </label>
         </div>
+        <div class="radio  radio-primary radio-inline">
+            <label>
+                <input type="radio" value="2" formControlName="book_type">전공
+            </label>
+        </div>
+        <div class="messages text-danger" *ngIf="myForm.controls.book_type.errors?.required">*필수 입력</div>
+    </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Note</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="note" placeholder="note" formControlName="note">
-            </div>
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">예약</label>
+        <div class="col-sm-3">
+            <input class="form-control" type="date" formControlName="future_date"/>
         </div>
+    </div>
 
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Review url</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="review_url" formControlName="review_url" pattern="https?://.+"
-                >
-                <div class="messages text-danger error" *ngIf="myForm.controls.review_url.errors">Url Pattern</div>
-            </div>
+    <!--TODO api 서버 및 업로드 기능 구현-->
+    <div class="form-group row">
+        <label class="col-sm-2 control-label">업로드</label>
+        <div class="col-sm-3">
+            <input  type="file"/>
         </div>
-
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Radio Button</label>
-            <div class="col-sm-10">
-                <div class="form-radio">
-                    <div class="radio radiofill radio-primary radio-inline">
-                        <label>
-                            <input type="radio" value="1" formControlName="book_type">
-                            <i class="helper"></i>자기개발
-                        </label>
-                    </div>
-                    <div class="radio radiofill radio-primary radio-inline">
-                        <label>
-                            <input type="radio" value="2" formControlName="book_type">
-                            <i class="helper"></i>전공
-                        </label>
-                    </div>
-                </div>
-                <div class="messages text-danger" *ngIf="myForm.controls.book_type.errors?.required">can't be blank</div>
-            </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2"></label>
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary m-b-0" (click)="onSubmit()">Submit</button>
         </div>
-
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Future Date</label>
-            <div class="col-sm-5">
-                <input class="form-control" type="date" formControlName="future_date"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label class="col-sm-2"></label>
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary m-b-0" (click)="onSubmit()">Submit</button>
-            </div>
-        </div>
-    </form>
+    </div>
+</form>

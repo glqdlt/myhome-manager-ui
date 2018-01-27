@@ -4,15 +4,7 @@ import {BookRoutingModule} from "./book-routing.module";
 import {BookTypePipe} from "./book-type.pipe";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ReadStatusPipe} from "./read-status.pipe";
-import {
-    MatButtonModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatRadioModule
-} from "@angular/material";
+import {MatNativeDateModule, MatProgressSpinnerModule, MatRadioModule} from "@angular/material";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import {RestApiService} from "../../services/RestApiService";
@@ -34,21 +26,17 @@ import {Ng2AutoCompleteModule} from "ng2-auto-complete";
         FormsModule,
         CommonModule,
         ShareModule,
-        MatInputModule,
-        MatDatepickerModule,
         NgxDatatableModule,
         MatNativeDateModule,
         FormEditorModule,
         Ng2AutoCompleteModule,
-        MatCheckboxModule,
-        MatButtonModule,
         UiSwitchModule,
         MatRadioModule,
         PaginationModule,
         ErrorModule,
         MatProgressSpinnerModule, HttpClientModule],
-    declarations: [BookWrapperComponent,BookNewComponent, BookListComponent,BookDetailComponent, BookTypePipe, ReadStatusPipe],
-    providers: [RestApiService,SpinnerService]
+    declarations: [BookWrapperComponent, BookNewComponent, BookListComponent, BookDetailComponent, BookTypePipe, ReadStatusPipe],
+    providers: [RestApiService, SpinnerService]
 })
 export class BookModule {
 

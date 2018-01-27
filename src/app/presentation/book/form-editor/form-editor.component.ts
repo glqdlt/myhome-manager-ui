@@ -14,6 +14,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
     styleUrls: ['./form-editor.component.css']
 })
 export class FormEditorComponent implements OnInit, OnDestroy, OnChanges {
+
+
     ngOnChanges(changes: SimpleChanges): void {
     }
 
@@ -128,7 +130,7 @@ export class FormEditorComponent implements OnInit, OnDestroy, OnChanges {
                 res =>
                     (Observable.timer(2000).subscribe(next => this.goList())),
                 err => console.error(err),
-            )
+            );
         }
     }
 
@@ -144,4 +146,6 @@ export class FormEditorComponent implements OnInit, OnDestroy, OnChanges {
         console.log(formattedDate);
         return formattedDate;
     }
+
+
 }

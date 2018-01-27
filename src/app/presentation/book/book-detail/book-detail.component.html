@@ -1,43 +1,47 @@
 <app-card [title]="'New Book'">
 
     <ui-switch [(ngModel)]="changeMode"></ui-switch>
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li role="presentation" class="active">Detail</li>
+            <li role="presentation">Edit</li>
+        </ul>
+    </div>
 
     <div *ngIf="!changeMode">
         <div class="col-lg-12 col-xl-6">
-            <div>
-                <table>
-                    <tbody>
-                    <tr>
-                        <th>Book No</th>
-                        <td>{{bookModel?.no}}</td>
-                    </tr>
-                    <tr>
-                        <th>Subject</th>
-                        <td>{{bookModel?.subject}}</td>
-                    </tr>
-                    <tr>
-                        <th>Author</th>
-                        <td>{{bookModel?.author}}</td>
-                    </tr>
-                    <tr>
-                        <th>Registry date</th>
-                        <td>{{bookModel?.reg_date | date : 'yyyy.MM.dd'}}</td>
-                    </tr>
-                    <tr>
-                        <th>Future Date</th>
-                        <td>{{bookModel?.future_date | date : 'yyyy.MM.dd'}}</td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Note
-                        </th>
-                        <td>
-                            {{bookModel?.note}}
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="table table-condensed">
+                <tbody>
+                <tr>
+                    <th>Book No</th>
+                    <td>{{bookModel?.no}}</td>
+                </tr>
+                <tr>
+                    <th>Subject</th>
+                    <td>{{bookModel?.subject}}</td>
+                </tr>
+                <tr>
+                    <th>Author</th>
+                    <td>{{bookModel?.author}}</td>
+                </tr>
+                <tr>
+                    <th>Registry date</th>
+                    <td>{{bookModel?.reg_date | date : 'yyyy.MM.dd'}}</td>
+                </tr>
+                <tr>
+                    <th>Future Date</th>
+                    <td>{{bookModel?.future_date | date : 'yyyy.MM.dd'}}</td>
+                </tr>
+                <tr>
+                    <th>
+                        Note
+                    </th>
+                    <td>
+                        {{bookModel?.note}}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <!-- end of table col-lg-6 -->
         <div>
